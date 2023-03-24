@@ -18,7 +18,7 @@ export const fadeIn = keyframes`
 export const fadeUp = keyframes`
 0% {
     opacity: 40%;
-    transform: translate3d(0, 10%, 0);
+    transform: translate3d(0, 30%, 0);
 }
 50% {
     opacity: 60%;
@@ -37,7 +37,7 @@ export const fadeUp = keyframes`
 export const TextfadeUp = keyframes`
 0% {
     opacity: 40%;
-    transform: translate3d(0, 30%, 0);
+    transform: translate3d(0, 50%, 0);
 }
 50% {
     opacity: 60%;
