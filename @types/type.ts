@@ -7,9 +7,19 @@ export interface WrapperProps {
 
 export interface textProps {
     text: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    scrollState?: boolean;
 }
 
 export interface imgProps {
     src: string | StaticImageData;
     alt?: string;
+}
+
+export interface catergoryProps {
+    text: string;
+    src: string | StaticImageData;
+    alt: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    scrollState?: boolean;
 }

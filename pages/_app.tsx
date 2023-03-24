@@ -34,10 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
           name="description"
           content="멋쟁이사자처럼 강남대학교 지원 사이트"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/all.min.css"
-        />
         <title> 멋쟁이사자처럼 </title>
       </Head>
       <GlobalStyles />
