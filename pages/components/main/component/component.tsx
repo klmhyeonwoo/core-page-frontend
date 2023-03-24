@@ -126,7 +126,6 @@ export const IconBox = () => {
 };
 
 export const Icon = ({ src, alt }: imgProps) => {
-  console.log(src);
   return (
     <>
       <Image
@@ -217,9 +216,7 @@ export const MainTitle = ({ text }: textProps) => {
       <div
         css={css`
           text-align: center;
-          // font-family: "Pretendard-Bold";
-          font-family: "AppleSDGothicNeo", "Noto Sans KR", sans-serif;
-          font-weight: 900;
+          font-family: "Pretendard-Black";
           font-size: 50px;
           letter-spacing: -0.04em;
           color: #333d4b;

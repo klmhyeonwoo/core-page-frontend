@@ -19,6 +19,7 @@ export default function Main() {
       css={css`
         width: 100vw;
         height: 100vh;
+        box-sizing: border-box;
 
         display: flex;
         align-items: center;
