@@ -6,3 +6,12 @@ html {
 body {
   margin: 0;
 }
+
+a {
+  text-decoration: none;
+  transition: 0.5s all;
+}
+
+a:hover {
+  opacity: 80%;
+}

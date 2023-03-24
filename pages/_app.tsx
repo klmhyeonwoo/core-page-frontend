@@ -2,6 +2,7 @@ import GlobalStyles from "@/styles/GlobalStyles";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { IndexHeader } from "./components/common/component/component";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -37,6 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title> 멋쟁이사자처럼 </title>
       </Head>
       <GlobalStyles />
+      <IndexHeader />
       <Component {...pageProps} />
     </>
   );

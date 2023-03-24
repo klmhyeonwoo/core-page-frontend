@@ -8,6 +8,8 @@ import present from "../../../../images/present_main.png";
 import ball from "../../../../images/ball_main.png";
 import space from "../../../../images/space_main.png";
 import lion from "../../../../images/lion.png";
+import { fadeIn } from "@/styles/effect";
+import { useRef } from "react";
 
 const scrollEffect = keyframes`
 	0% {
@@ -44,22 +46,31 @@ const bounce = keyframes`
 `;
 
 export const MainArticle = () => {
+  const TitleRef = useRef<HTMLDivElement>(null);
+
+  setTimeout(() => {
+    if (TitleRef.current) {
+      TitleRef.current.style.display = "flex";
+    }
+  }, 2000);
   return (
     <div
       css={css`
+        display: none;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        animation: ${fadeIn} 0.5s ease-in-out;
 
-        display: flex;
         flex-direction: column;
         align-items: center;
         z-index: 1;
       `}
+      ref={TitleRef}
     >
       <MainTitle
-        text={`혁신적인 서비스가 실현되는 곳 \n 멋쟁이사자처럼에 합류하고 싶으신가요?`}
+        text={`혁신적인 서비스를 만들고 있는 \n 우리는 멋쟁이사자처럼 입니다`}
       />
       <ApplyButton />
     </div>
@@ -126,44 +137,55 @@ export const IconBox = () => {
 };
 
 export const Icon = ({ src, alt }: imgProps) => {
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  setTimeout(() => {
+    if (imageRef.current) {
+      imageRef.current.style.display = "block";
+    }
+  }, 1500);
+
   return (
     <>
       <Image
         css={css`
+          display: none;
           position: absolute !important;
+          animation: ${fadeIn} 0.5s ease-in-out;
           ${alt === "메인 아이콘"
             ? css`
                 width: 24em;
-                animation: ${bounce} 2.1s linear 1s infinite;
+                // animation: ${bounce} 2.1s linear 1s infinite;
               `
             : css`
-                width: 12.5em;
+                width: 13.5em;
               `}
           height: auto;
 
           ${alt === "공" &&
           css`
+            width: 12.5em;
             transform: translate(-400px, 200px);
-            animation: ${bounce} 2.3s linear 1s infinite;
+            // animation: ${bounce} 2.3s linear 1s infinite;
           `}
 
           ${alt === "화분" &&
           css`
-            transform: translate(-400px, -300px);
-            animation: ${bounce} 2.5s linear 1s infinite;
+            transform: translate(-400px, -250px);
+            // animation: ${bounce} 2.5s linear 1s infinite;
           `}
 
           ${alt === "선물" &&
           css`
-            transform: translate(400px, 300px);
-            width: 17.5em;
-            animation: ${bounce} 2.7s linear 1s infinite;
+            transform: translate(400px, 250px);
+            width: 19.5em;
+            // animation: ${bounce} 2.7s linear 1s infinite;
           `}
 
           ${alt === "박스" &&
           css`
             transform: translate(400px, -200px);
-            animation: ${bounce} 2.9s linear 1s infinite;
+            // animation: ${bounce} 2.9s linear 1s infinite;
           `}
 
           ${alt === "스크롤" &&
@@ -176,6 +198,7 @@ export const Icon = ({ src, alt }: imgProps) => {
         `}
         src={src}
         alt="메인 아이콘 이미지"
+        ref={imageRef}
       />
     </>
   );
@@ -217,10 +240,11 @@ export const MainTitle = ({ text }: textProps) => {
         css={css`
           text-align: center;
           font-family: "Pretendard-Black";
-          font-size: 50px;
+          font-size: 55px;
           letter-spacing: -0.04em;
           color: #333d4b;
           z-index: 1;
+          line-height: 1.3em;
         `}
       >
         {topText} <br />

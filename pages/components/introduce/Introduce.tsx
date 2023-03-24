@@ -6,7 +6,7 @@ import {
   Description,
   TitleOfBlack,
   TitleOfBlue,
-} from "../../common/component/component";
+} from "../common/component/component";
 import { useInView } from "react-intersection-observer";
 import { useMemo } from "react";
 

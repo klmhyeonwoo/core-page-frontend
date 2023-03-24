@@ -6,9 +6,11 @@ import hackerton from "../../../../images/hackerton.png";
 import study from "../../../../images/study.png";
 import education from "../../../../images/education.png";
 import Image from "next/image";
+import logo from "../../../../images/logo.png";
 import { useInView } from "react-intersection-observer";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { TextfadeUp, fadeIn, fadeUp } from "@/styles/effect";
+import Link from "next/link";
 
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
@@ -66,6 +68,7 @@ export const TitleOfBlack = forwardRef(
             font-size: 34px;
             margin-top: 0.5em;
             line-height: 1.3em;
+            margin-bottom: 1.6em;
             animation: ${TextfadeUp} 1.3s ease-in-out;
           `}
           ref={blackRef}
@@ -99,7 +102,6 @@ export const Description = forwardRef(
             font-family: "Pretendard-Medium";
             letter-spacing: -0.03em;
             font-size: 18px;
-            margin-top: 3em;
             line-height: 1.5em;
             animation: ${TextfadeUp} 1.5s ease-in-out;
           `}
@@ -240,3 +242,117 @@ export function Category() {
     </article>
   );
 }
+
+// 공통적인 헤더를 나타내주는 컴포넌트
+export const IndexHeader = () => {
+  const [scrollState, setScrollState] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    if (window.scrollY || document.documentElement.scrollTop > 0) {
+      setScrollState(true);
+    } else {
+      setScrollState(false);
+    }
+  };
+
+  // useMemo(() => {}, [window.scrollY || document.documentElement.scrollTop]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll); //clean up
+    };
+  }, []);
+
+  return (
+    <>
+      <div
+        css={css`
+          position: fixed;
+          z-index: 999;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 1.2em;
+          padding-bottom: 1.2em;
+          @media (max-width: 1099px) {
+            display: none;
+          }
+          @media all and (min-width: 768px) and (max-width: 1099px) {
+            font-size: 18px;
+          }
+          @media all and (min-width: 1100px) and (max-width: 2000px) {
+            font-size: 18px;
+          }
+          column-gap: 30em;
+          background-color: white;
+          ${scrollState &&
+          css`
+            border: solid;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1;
+            border-color: #e6e8ea;
+            border-width: 1px;
+          `}
+          a {
+            @media all and (min-width: 768px) and (max-width: 1099px) {
+              font-size: 14.8px;
+            }
+            @media all and (min-width: 1100px) and (max-width: 2000px) {
+              font-size: 14.8px;
+            }
+            color: #4e5968;
+            font-family: "Pretendard-Regular";
+            letter-spacing: -0.03em;
+          }
+        `}
+      >
+        <Image
+          alt="로고"
+          src={logo}
+          css={css`
+            height: auto;
+            width: 155px;
+            transition: 0.4s all;
+            &:hover {
+              opacity: 70%;
+            }
+          `}
+        />
+        <nav
+          css={css`
+            height: 100%;
+            display: flex;
+            column-gap: 2.5em;
+            transition: 0.4s all;
+          `}
+        >
+          <Link
+            href="https://ripe-launch-04b.notion.site/88de609dd84e4fcab616b1cf2cf491e2"
+            target="_blank"
+            tabIndex={-1}
+          >
+            조직 소개
+          </Link>
+          <Link
+            href="https://ripe-launch-04b.notion.site/24b3c0a0d41d4162b1c458055fe86dd8"
+            target="_blank"
+            tabIndex={-1}
+          >
+            합류 여정
+          </Link>
+          <Link
+            href="https://ripe-launch-04b.notion.site/2bde1551815e455ab4306ab5ca190519"
+            target="_blank"
+            tabIndex={-1}
+          >
+            강남멋사 조직도
+          </Link>
+        </nav>
+      </div>
+    </>
+  );
+};

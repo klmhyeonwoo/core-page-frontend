@@ -16,6 +16,13 @@ export interface imgProps {
     alt?: string;
 }
 
+export interface brandImgProps {
+    src: string | StaticImageData;
+    alt: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    scrollState?: boolean;
+}
+
 export interface catergoryProps {
     text: string;
     src: string | StaticImageData;
