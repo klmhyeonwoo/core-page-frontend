@@ -4,11 +4,12 @@ import { css, keyframes } from "@emotion/react";
 import React from "react";
 import { TitleOfBlack, TitleOfBlue } from "../common/component/component";
 import { useInView } from "react-intersection-observer";
+import { IdealArticle, IdealContent, IdealTitle } from "./component/component";
 
-export default function Skill() {
+export default function Ideal() {
   const [blueTitleRef, blueTitleState] = useInView();
   const [blackTitleRef, blackTitleState] = useInView();
-  const [describeRef, describeState] = useInView();
+  const [skillRef, skillState] = useInView();
   return (
     <section
       css={css`
@@ -19,6 +20,7 @@ export default function Skill() {
         justify-content: center;
         padding-top: 10em;
         padding-bottom: 10em;
+        background-color: #f9fafb;
       `}
     >
       <article
@@ -27,15 +29,16 @@ export default function Skill() {
         `}
       >
         <TitleOfBlue
-          text="기술 이야기"
+          text="인재상"
           ref={blueTitleRef}
           scrollState={blueTitleState ? true : false}
         />
         <TitleOfBlack
-          text={`우리는 프로젝트를 진행하면서 \n 트렌디한 다양한 기술 스택들을 배우고 있어요`}
+          text={`우리는 상호공감을 중점으로 \n 항상 상호 간 존중을 토대로 움직이고 있어요`}
           ref={blackTitleRef}
           scrollState={blackTitleState ? true : false}
         />
+        <IdealArticle />
       </article>
     </section>
   );
