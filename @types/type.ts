@@ -30,3 +30,10 @@ export interface catergoryProps {
     ref?: React.RefObject<HTMLSpanElement>;
     scrollState?: boolean;
 }
+
+export interface skillProps {
+    skill: string;
+    scrollState?: boolean;
+    ref?: React.RefObject<HTMLSpanElement>;
+
+}

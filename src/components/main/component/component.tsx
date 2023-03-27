@@ -6,7 +6,7 @@ import box from "../../../../images/box_main.png";
 import glass from "../../../../images/glass_main.png";
 import present from "../../../../images/present_main.png";
 import ball from "../../../../images/ball_main.png";
-import space from "../../../../images/space_main.png";
+import space from "../../../../images/space.png";
 import lion from "../../../../images/lion.png";
 import { fadeIn } from "@/styles/effect";
 import { useRef } from "react";
@@ -52,11 +52,12 @@ export const MainArticle = () => {
     if (TitleRef.current) {
       TitleRef.current.style.display = "flex";
     }
-  }, 2000);
+  }, 2800);
   return (
     <div
       css={css`
         display: none;
+        font-display: block;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -70,7 +71,7 @@ export const MainArticle = () => {
       ref={TitleRef}
     >
       <MainTitle
-        text={`혁신적인 서비스를 만들고 있는 \n 우리는 멋쟁이사자처럼 입니다`}
+        text={`우아하고 혁신적인 브랜딩을 실현하는 \n 우리는 멋쟁이사자처럼 입니다`}
       />
       <ApplyButton />
     </div>
@@ -82,7 +83,7 @@ export const ApplyButton = () => {
     <div
       css={css`
         margin-top: 3em;
-        width: 14em;
+        width: 17em;
         height: 3.5em;
         border: none;
         border-radius: 0.7em;
@@ -118,7 +119,7 @@ export const ApplyButton = () => {
           color: white;
         `}
       >
-        지금 바로 합류하기
+        팀에 합류하고 싶으신가요?
       </span>
     </div>
   );
@@ -145,6 +146,12 @@ export const Icon = ({ src, alt }: imgProps) => {
     }
   }, 1500);
 
+  setTimeout(() => {
+    if (imageRef.current) {
+      imageRef.current.style.opacity = "40%";
+    }
+  }, 2500);
+
   return (
     <>
       <Image
@@ -152,9 +159,10 @@ export const Icon = ({ src, alt }: imgProps) => {
           display: none;
           position: absolute !important;
           animation: ${fadeIn} 0.5s ease-in-out;
+          transition: 1s all;
           ${alt === "메인 아이콘"
             ? css`
-                width: 24em;
+                width: 15em;
                 // animation: ${bounce} 2.1s linear 1s infinite;
               `
             : css`
@@ -219,6 +227,7 @@ export const BackGroundImg = ({ src }: imgProps) => {
         css={css`
           width: 100% !important;
           height: 100% !important;
+          animation: ${fadeIn} 0.7s ease-in-out;
         `}
       />
       {/* <Icon src={box} />

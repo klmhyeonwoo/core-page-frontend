@@ -107,9 +107,9 @@ export const Description = forwardRef(
           `}
           ref={descriptionRef}
         >
-          {text.split("\n").map((item) => {
+          {text.split("\n").map((item, key) => {
             return (
-              <div key={item}>
+              <div key={key}>
                 <span
                   css={css`
                     display: block;
