@@ -38,7 +38,6 @@ export const SkillSection = forwardRef(
     useEffect(() => {
       if (scrollState && skillRef.current) {
         skillRef.current.style.display = "block";
-        console.log(scrollState);
       }
     }, [scrollState]);
 
@@ -167,7 +166,7 @@ const BackendSkill = () => {
         margin-bottom: 1.5em;
       `}
     >
-      <SkillImage src={aws} alt={"aws"} />
+      <SkillImage src={java} alt={"aws"} />
       <SkillImage src={spring} alt={"spring"} />
       <SkillImage src={gradle} alt={"gradle"} />
       <SkillImage src={mysql} alt={"mysql"} />
