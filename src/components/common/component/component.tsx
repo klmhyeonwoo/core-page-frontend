@@ -7,6 +7,9 @@ import study from "../../../../images/study.png";
 import education from "../../../../images/education.png";
 import Image from "next/image";
 import logo from "../../../../images/logo.png";
+import instagram from "../../../../images/footer/instagram.svg";
+import facebook from "../../../../images/footer/facebook.svg";
+import channelTalk from "../../../../images/footer/channelTalk.svg";
 import { useInView } from "react-intersection-observer";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { TextfadeUp, fadeIn, fadeUp } from "@/styles/effect";
@@ -63,7 +66,7 @@ export const TitleOfBlack = forwardRef(
           css={css`
             display: none;
             color: #333d4b;
-            font-family: "Pretendard-Black";
+            font-family: "Pretendard-ExtraBold";
             letter-spacing: -0.03em;
             font-size: 34px;
             margin-top: 0.5em;
@@ -354,5 +357,96 @@ export const IndexHeader = () => {
         </nav>
       </div>
     </>
+  );
+};
+
+// 푸터 컴포넌트
+export const Footer = () => {
+  return (
+    <section
+      css={css`
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f9fafb;
+        padding-top: 8em;
+        padding-bottom: 8em;
+      `}
+    >
+      <div
+        css={css`
+          // @media all and (min-width: 768px) and (max-width: 1099px) {
+          //   font-size: 14px;
+          //   span {
+          //     font-size: 12px;
+          //   }
+          // }
+          // @media all and (min-width: 1100px) and (max-width: 2000px) {
+          //   font-size: 16px;
+          // }
+          width: 1000px;
+          height: 100%;
+          font-family: "Pretendard-Regular";
+          letter-spacing: -0.03em;
+          margin-left: 0.4em;
+          color: #8b95a1;
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          row-gap: 0.6em;
+          font-size: 15px;
+        `}
+      >
+        <span
+          css={css`
+            font-family: "Pretendard-Bold";
+            color: #333d4b;
+            // @media all and (min-width: 768px) and (max-width: 1099px) {
+            //   font-size: 14.5px !important;
+            // }
+            // @media all and (min-width: 1100px) and (max-width: 2000px) {
+            //   font-size: 15.7px !important;
+            // }
+            font-size: 17px;
+            margin-bottom: 0.6em;
+          `}
+        >
+          멋쟁이사자처럼 강남대학교 11기
+        </span>
+        <span>경기도 용인시 기흥구 강남로 40 강남대학교 이공관</span>
+        <span>Copyright ⓒ 2023 likelion knu All rights reserved.</span>
+        <FooterSNS />
+      </div>
+    </section>
+  );
+};
+
+export const FooterSNS = () => {
+  return (
+    <div
+      css={css`
+        display: flex;
+        column-gap: 0.4em;
+      `}
+    >
+      <FooterIcon src={facebook} alt="페이스북" />
+      <FooterIcon src={channelTalk} alt="채널톡" />
+      <FooterIcon src={instagram} alt="인스타그램" />
+    </div>
+  );
+};
+
+export const FooterIcon = ({ src, alt }: imgProps) => {
+  return (
+    <Image
+      src={src}
+      alt={`${alt}`}
+      css={css`
+        width: 35px;
+        height: auto;
+      `}
+    />
   );
 };

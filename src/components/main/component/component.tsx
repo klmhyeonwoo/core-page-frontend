@@ -104,18 +104,18 @@ export const ApplyButton = () => {
       `}
     >
       <Image
-        src={lion}
-        alt="사자"
+        src={space}
+        alt="메인 로고"
         css={css`
           margin-top: 0.3em;
-          width: 3em;
+          width: 2em;
           height: auto;
         `}
       />
       <span
         css={css`
-          font-family: "Pretendard-Bold";
-          letter-spacing: -0.03em;
+          font-family: "Pretendard-Medium";
+          letter-spacing: -0.02em;
           color: white;
         `}
       >
@@ -248,7 +248,7 @@ export const MainTitle = ({ text }: textProps) => {
       <div
         css={css`
           text-align: center;
-          font-family: "Pretendard-Black";
+          font-family: "Pretendard-ExtraBold";
           font-size: 55px;
           letter-spacing: -0.04em;
           color: #333d4b;
