@@ -11,6 +11,11 @@ export interface textProps {
     scrollState?: boolean;
 }
 
+export interface refProps {
+    ref?: React.RefObject<HTMLDivElement>;
+    scrollState?: boolean;
+}
+
 export interface imgProps {
     src: string | StaticImageData;
     alt?: string;

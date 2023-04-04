@@ -12,8 +12,14 @@ import {
 } from "./component/component";
 import backgroundImg from "../../../images/background.png";
 import scroll from "../../../images/scroll.png";
+import { useSelector } from "react-redux";
+import { AppStore, RootState } from "@/src/app/store";
 
 export default function Main() {
+  const scroll = useSelector((state: RootState) => state.scroll.openingScroll);
+
+  console.log("Redux 값 :", scroll);
+
   return (
     <section
       css={css`
@@ -28,7 +34,7 @@ export default function Main() {
     >
       <BackGroundImg src={backgroundImg} />
       <MainArticle />
-      <IconBox />
+      {/* <IconBox /> */}
       <Icon src={scroll} alt="스크롤" />
     </section>
   );

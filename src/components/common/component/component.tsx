@@ -7,6 +7,7 @@ import study from "../../../../images/study.png";
 import education from "../../../../images/education.png";
 import Image from "next/image";
 import logo from "../../../../images/logo.png";
+import logo2 from "../../../../images/logo2.png";
 import instagram from "../../../../images/footer/instagram.svg";
 import facebook from "../../../../images/footer/facebook.svg";
 import channelTalk from "../../../../images/footer/channelTalk.svg";
@@ -162,6 +163,10 @@ export const ItemOfCategory = forwardRef(
             flex-direction: column;
             align-items: center;
             animation: ${fadeUp} 1.7s ease-in-out;
+
+            &:hover {
+              filter: blur(20px);
+            }
           `}
           ref={categoryRef}
         >
@@ -289,7 +294,9 @@ export const IndexHeader = () => {
             font-size: 18px;
           }
           column-gap: 30em;
-          background-color: white;
+
+          background-color: none;
+
           ${scrollState &&
           css`
             border: solid;
@@ -307,7 +314,7 @@ export const IndexHeader = () => {
             @media all and (min-width: 1100px) and (max-width: 2000px) {
               font-size: 14.8px;
             }
-            color: #4e5968;
+            color: white;
             font-family: "Pretendard-Regular";
             letter-spacing: -0.03em;
           }
@@ -315,7 +322,7 @@ export const IndexHeader = () => {
       >
         <Image
           alt="로고"
-          src={logo}
+          src={logo2}
           css={css`
             height: auto;
             width: 155px;
