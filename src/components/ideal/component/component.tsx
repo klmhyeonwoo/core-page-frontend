@@ -1,79 +1,103 @@
 /** @jsxImportSource @emotion/react */
-import { WrapperProps, imgProps, skillProps, textProps } from "@/@types/type";
+import {
+  WrapperProps,
+  imgProps,
+  refProps,
+  skillProps,
+  textProps,
+} from "@/@types/type";
+import { TextfadeUp } from "@/styles/effect";
 import { css, keyframes } from "@emotion/react";
+import { forwardRef, useEffect, useRef } from "react";
 
-export const IdealArticle = () => {
-  return (
-    <article
-      css={css`
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        row-gap: 4em;
-      `}
-    >
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-          float: left;
-          row-gap: 1em;
-        `}
-      >
-        <IdealTitle text="기본적인 배려를 가진 팀원을 원해요" />
-        <IdealContent
-          text={`활동을 진행하면서 최대한 갈등상황을 만들지 않기 위해 \n
+export const IdealArticle = forwardRef(
+  ({ scrollState }: refProps, ref: any) => {
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      if (scrollState && contentRef.current) {
+        contentRef.current.style.display = "grid";
+      }
+    }, [scrollState]);
+
+    return (
+      <div ref={ref}>
+        <article
+          css={css`
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 4em;
+            animation: ${TextfadeUp} 1.5s ease-in-out;
+          `}
+          ref={contentRef}
+        >
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              float: left;
+              row-gap: 1em;
+            `}
+          >
+            <IdealTitle text="기본적인 배려를 가진 팀원을 원해요" />
+            <IdealContent
+              text={`활동을 진행하면서 최대한 갈등상황을 만들지 않기 위해 \n
             상대방에 대한 배려를 가진 사람을 필요로 하고 있어요`}
-        />
-      </div>
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-          float: left;
-          row-gap: 1em;
-        `}
-      >
-        <IdealTitle text="매사 열정을 가지고 임하는 팀원을 원해요" />
-        <IdealContent
-          text={`다양한 프로젝트에서 최고의 활약을 보여주기 보다, \n
+            />
+          </div>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              float: left;
+              row-gap: 1em;
+            `}
+          >
+            <IdealTitle text="매사 열정을 가지고 임하는 팀원을 원해요" />
+            <IdealContent
+              text={`다양한 프로젝트에서 최고의 활약을 보여주기 보다, \n
           항상 열정을 가지고 열심히 임하는 팀원을 더 선호해요`}
-        />
-      </div>
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-          float: left;
-          row-gap: 1em;
-        `}
-      >
-        <IdealTitle text="발전을 추구하는 팀원을 원해요" />
-        <IdealContent
-          text={`단순히 대외활동이라는 틀에서 벗어나, 팀원들과의 다양한 \n
+            />
+          </div>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              float: left;
+              row-gap: 1em;
+            `}
+          >
+            <IdealTitle text="발전을 추구하는 팀원을 원해요" />
+            <IdealContent
+              text={`단순히 대외활동이라는 틀에서 벗어나, 팀원들과의 다양한 \n
           도전을 통해 성장하는 팀원을 필요로 하고 있어요`}
-        />
-      </div>
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-          float: left;
-          row-gap: 1em;
-        `}
-      >
-        <IdealTitle text="자신만의 색깔을 가진 팀원을 원해요" />
-        <IdealContent
-          text={`현재 멋쟁이사자처럼 강남대학교는 열심히 브랜딩 중이에요, \n
+            />
+          </div>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              float: left;
+              row-gap: 1em;
+            `}
+          >
+            <IdealTitle text="자신만의 색깔을 가진 팀원을 원해요" />
+            <IdealContent
+              text={`현재 멋쟁이사자처럼 강남대학교는 열심히 브랜딩 중이에요, \n
           우리의 브랜딩 컬러에 또 하나의 색깔을 더해줄 팀원을 찾고 있어요`}
-        />
+            />
+          </div>
+        </article>
       </div>
-    </article>
-  );
-};
+    );
+  }
+);
+
+IdealArticle.displayName = "IdealArticle";
 
 export const IdealTitle = ({ text }: textProps) => {
   return (

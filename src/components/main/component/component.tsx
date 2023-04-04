@@ -7,9 +7,10 @@ import glass from "../../../../images/glass_main.png";
 import present from "../../../../images/present_main.png";
 import ball from "../../../../images/ball_main.png";
 import space from "../../../../images/space.png";
-import lion from "../../../../images/lion.png";
+import lion from "../../../../images/lion.gif";
 import { fadeIn } from "@/styles/effect";
 import { useRef } from "react";
+import Link from "next/link";
 
 const scrollEffect = keyframes`
 	0% {
@@ -52,7 +53,7 @@ export const MainArticle = () => {
     if (TitleRef.current) {
       TitleRef.current.style.display = "flex";
     }
-  }, 2800);
+  }, 2000);
   return (
     <div
       css={css`
@@ -80,48 +81,52 @@ export const MainArticle = () => {
 
 export const ApplyButton = () => {
   return (
-    <div
-      css={css`
-        margin-top: 3em;
-        width: 17em;
-        height: 3.5em;
-        border: none;
-        border-radius: 0.7em;
-        background-color: rgba(0, 12, 30, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-sizing: border-box;
-        column-gap: 1em;
-        padding-right: 0.1em;
-        transition: 0.5s all;
-        cursor: pointer;
+    <>
+      <Link href={"https://knu-likelion.org"} target="_blank">
+        <div
+          css={css`
+            margin-top: 3em;
+            width: 17em;
+            height: 3.5em;
+            border: none;
+            border-radius: 0.7em;
+            background-color: rgba(0, 12, 30, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            column-gap: 1em;
+            padding-right: 0.1em;
+            transition: 0.5s all;
+            cursor: pointer;
 
-        &:hover {
-          background-color: rgb(78, 89, 104);
-          color: rgb(255, 255, 255);
-        }
-      `}
-    >
-      <Image
-        src={space}
-        alt="메인 로고"
-        css={css`
-          margin-top: 0.3em;
-          width: 2em;
-          height: auto;
-        `}
-      />
-      <span
-        css={css`
-          font-family: "Pretendard-Medium";
-          letter-spacing: -0.02em;
-          color: white;
-        `}
-      >
-        팀에 합류하고 싶으신가요?
-      </span>
-    </div>
+            &:hover {
+              background-color: rgb(78, 89, 104);
+              color: rgb(255, 255, 255);
+            }
+          `}
+        >
+          <Image
+            src={space}
+            alt="메인 로고"
+            css={css`
+              margin-top: 0.3em;
+              width: 2em;
+              height: auto;
+            `}
+          />
+          <span
+            css={css`
+              font-family: "Pretendard-Medium";
+              letter-spacing: -0.02em;
+              color: white;
+            `}
+          >
+            팀에 합류하고 싶으신가요?
+          </span>
+        </div>
+      </Link>
+    </>
   );
 };
 
@@ -251,7 +256,8 @@ export const MainTitle = ({ text }: textProps) => {
           font-family: "Pretendard-ExtraBold";
           font-size: 55px;
           letter-spacing: -0.04em;
-          color: #333d4b;
+          // color: #333d4b;
+          color: white;
           z-index: 1;
           line-height: 1.3em;
         `}

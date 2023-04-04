@@ -9,6 +9,7 @@ import { IdealArticle, IdealContent, IdealTitle } from "./component/component";
 export default function Ideal() {
   const [blueTitleRef, blueTitleState] = useInView();
   const [blackTitleRef, blackTitleState] = useInView();
+  const [idealRef, idealState] = useInView();
   const [skillRef, skillState] = useInView();
   return (
     <section
@@ -38,7 +39,7 @@ export default function Ideal() {
           ref={blackTitleRef}
           scrollState={blackTitleState ? true : false}
         />
-        <IdealArticle />
+        <IdealArticle ref={idealRef} scrollState={idealState ? true : false} />
       </article>
     </section>
   );
