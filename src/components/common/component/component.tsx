@@ -15,6 +15,8 @@ import { useInView } from "react-intersection-observer";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { TextfadeUp, fadeIn, fadeUp } from "@/styles/effect";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "@/src/app/store";
 
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
@@ -254,12 +256,27 @@ export function Category() {
 // 공통적인 헤더를 나타내주는 컴포넌트
 export const IndexHeader = () => {
   const [scrollState, setScrollState] = useState<boolean>(false);
+  const [openingState, setOpeningState] = useState<boolean>(false);
+  const openingScroll = useSelector(
+    (state: RootState) => state.scroll.openingScroll
+  );
+
+  console.log(openingScroll);
 
   const handleScroll = () => {
     if (window.scrollY || document.documentElement.scrollTop > 0) {
       setScrollState(true);
+      setOpeningState(false);
     } else {
       setScrollState(false);
+    }
+
+    if (window.scrollY > openingScroll) {
+      console.log(window.scrollY, openingScroll);
+      setOpeningState(true);
+      setScrollState(false);
+    } else {
+      setOpeningState(false);
     }
   };
 
@@ -270,7 +287,7 @@ export const IndexHeader = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll); //clean up
     };
-  }, []);
+  }, [openingScroll]);
 
   return (
     <>
@@ -284,6 +301,7 @@ export const IndexHeader = () => {
           align-items: center;
           padding-top: 1.2em;
           padding-bottom: 1.2em;
+
           @media (max-width: 1099px) {
             display: none;
           }
@@ -294,19 +312,8 @@ export const IndexHeader = () => {
             font-size: 18px;
           }
           column-gap: 30em;
-
           background-color: none;
 
-          ${scrollState &&
-          css`
-            border: solid;
-            border-top: 0;
-            border-left: 0;
-            border-right: 0;
-            border-bottom: 1;
-            border-color: #e6e8ea;
-            border-width: 1px;
-          `}
           a {
             @media all and (min-width: 768px) and (max-width: 1099px) {
               font-size: 14.8px;
@@ -318,20 +325,71 @@ export const IndexHeader = () => {
             font-family: "Pretendard-Regular";
             letter-spacing: -0.03em;
           }
-        `}
-      >
-        <Image
-          alt="로고"
-          src={logo2}
-          css={css`
-            height: auto;
-            width: 155px;
-            transition: 0.4s all;
-            &:hover {
-              opacity: 70%;
+
+          ${openingState &&
+          css`
+            border: solid;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1;
+            border-color: #e6e8ea;
+            border-width: 1px;
+            background-color: white;
+            transition: 0.5s all;
+            color: #4e5968;
+
+            a {
+              color: #4e5968;
             }
           `}
-        />
+
+          ${scrollState &&
+          css`
+            // border: solid;
+            // border-top: 0;
+            // border-left: 0;
+            // border-right: 0;
+            // border-bottom: 1;
+            // border-color: #e6e8ea;
+            // border-width: 1px;
+            background-color: rgb(47, 53, 62, 0.7);
+            transition: 0.5s all;
+
+            a {
+              color: white;
+            }
+          `}
+        `}
+      >
+        {openingState ? (
+          <Image
+            alt="로고"
+            src={logo}
+            css={css`
+              height: auto;
+              width: 155px;
+              transition: 0.4s all;
+              &:hover {
+                opacity: 70%;
+              }
+            `}
+          />
+        ) : (
+          <Image
+            alt="로고"
+            src={logo2}
+            css={css`
+              height: auto;
+              width: 155px;
+              transition: 0.4s all;
+              &:hover {
+                opacity: 70%;
+              }
+            `}
+          />
+        )}
+
         <nav
           css={css`
             height: 100%;

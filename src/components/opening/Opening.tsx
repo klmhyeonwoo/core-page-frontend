@@ -1,13 +1,27 @@
 /** @jsxImportSource @emotion/react */
 import { imgProps, textProps } from "@/@types/type";
 import { css, keyframes } from "@emotion/react";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { TitleOfBlack, TitleOfBlue } from "../common/component/component";
 import { useInView } from "react-intersection-observer";
 import lion from "../../../images/lion.gif";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { setOpeningScroll } from "@/src/features/scrollSlice";
 
 export default function Opening() {
+  const openingRef = useRef<HTMLDivElement>(null);
+  const [scrollRef, scrollState] = useInView();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setOpeningScroll({
+        openingScroll: openingRef.current?.getBoundingClientRect().top,
+      })
+    );
+  }, []);
+
   return (
     <section
       css={css`
@@ -20,6 +34,7 @@ export default function Opening() {
         padding-bottom: 12em;
         background-color: #f9fafb;
       `}
+      ref={openingRef}
     >
       <article
         css={css`
@@ -38,6 +53,7 @@ export default function Opening() {
             display: block;
           }
         `}
+        ref={scrollRef}
       >
         <Image
           src={lion}

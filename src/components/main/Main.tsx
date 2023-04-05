@@ -16,10 +16,6 @@ import { useSelector } from "react-redux";
 import { AppStore, RootState } from "@/src/app/store";
 
 export default function Main() {
-  const scroll = useSelector((state: RootState) => state.scroll.openingScroll);
-
-  console.log("Redux 값 :", scroll);
-
   return (
     <section
       css={css`
