@@ -22,6 +22,14 @@ export default function Network() {
         width: 1000px;
         display: flex;
         box-sizing: border-box;
+        @media all and (min-width: 0px) and (max-width: 1099px) {
+          width: auto;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 3em;
+        }
       `}
     >
       <div>

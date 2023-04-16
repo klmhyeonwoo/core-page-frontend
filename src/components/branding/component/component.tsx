@@ -22,17 +22,36 @@ export const BrandingImage = forwardRef(
           css`
             margin-top: 5em;
             margin-right: 4em;
+            @media all and (min-width: 0px) and (max-width: 1099px) {
+              margin: auto;
+              margin-bottom: 5em;
+              margin-top: 5em;
+            }
           `}
           ${alt === "책" &&
           css`
             margin-top: 6em;
             margin-left: auto;
             margin-right: -7em;
+            @media all and (min-width: 0px) and (max-width: 1099px) {
+              margin: auto;
+              margin-top: 5em;
+              margin-right: 5em;
+            }
+            @media all and (min-width: 0px) and (max-width: 600px) {
+              margin: auto;
+              margin-top: 5em;
+              margin-left: 7em;
+            }
           `}
           ${alt === "지구" &&
           css`
             margin-top: 6.5em;
             margin-left: auto;
+            @media all and (min-width: 0px) and (max-width: 1099px) {
+              margin: auto;
+              margin-top: 5em;
+            }
           `}
         `}
       >
