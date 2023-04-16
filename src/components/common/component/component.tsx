@@ -253,8 +253,8 @@ export function Category() {
   );
 }
 
-// 공통적인 헤더를 나타내주는 컴포넌트
-export const IndexHeader = () => {
+// 소개 페이지의 공통적인 헤더를 나타내주는 컴포넌트
+export const Header = () => {
   const [scrollState, setScrollState] = useState<boolean>(false);
   const [openingState, setOpeningState] = useState<boolean>(false);
   const openingScroll = useSelector(
@@ -299,8 +299,8 @@ export const IndexHeader = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding-top: 1.2em;
-          padding-bottom: 1.2em;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
 
           @media (max-width: 1099px) {
             display: none;
@@ -394,30 +394,182 @@ export const IndexHeader = () => {
           css={css`
             height: 100%;
             display: flex;
-            column-gap: 2.5em;
+            column-gap: 1.3em;
             transition: 0.4s all;
+
+            a {
+              border: none;
+              box-sizing: border-box;
+              padding: 0.9em;
+              border-radius: 0.5em;
+              transition: 0.5s all;
+            }
+
+            ${openingState
+              ? css`
+                  a:hover {
+                    background-color: rgba(2, 32, 71, 0.05);
+                  }
+                `
+              : css`
+                  a:hover {
+                    background-color: rgba(217, 217, 255, 0.11);
+                  }
+                `}
           `}
         >
-          <Link
-            href="https://ripe-launch-04b.notion.site/88de609dd84e4fcab616b1cf2cf491e2"
-            target="_blank"
-            tabIndex={-1}
-          >
+          <Link href="/" tabIndex={-1}>
             조직 소개
           </Link>
-          <Link
-            href="https://ripe-launch-04b.notion.site/24b3c0a0d41d4162b1c458055fe86dd8"
-            target="_blank"
-            tabIndex={-1}
-          >
+          <Link href="/procedure" tabIndex={-1}>
             합류 여정
           </Link>
-          <Link
-            href="https://ripe-launch-04b.notion.site/2bde1551815e455ab4306ab5ca190519"
-            target="_blank"
-            tabIndex={-1}
-          >
-            강남멋사 조직도
+          <Link href="/faq" tabIndex={-1}>
+            자주 묻는 질문
+          </Link>
+        </nav>
+      </div>
+    </>
+  );
+};
+
+// 합류 여정, FAQ 페이지의 공통적인 헤더를 나타내주는 컴포넌트
+export const SideHeader = () => {
+  const [scrollState, setScrollState] = useState<boolean>(false);
+  const [openingState, setOpeningState] = useState<boolean>(false);
+  const openingScroll = useSelector(
+    (state: RootState) => state.scroll.openingScroll
+  );
+
+  const handleScroll = () => {
+    if (window.scrollY || document.documentElement.scrollTop > 0) {
+      setScrollState(true);
+    } else {
+      setScrollState(false);
+    }
+  };
+
+  // useMemo(() => {}, [window.scrollY || document.documentElement.scrollTop]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll); //clean up
+    };
+  }, [openingScroll]);
+
+  return (
+    <>
+      <div
+        css={css`
+          position: fixed;
+          z-index: 999;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+
+          @media (max-width: 1099px) {
+            display: none;
+          }
+          @media all and (min-width: 768px) and (max-width: 1099px) {
+            font-size: 18px;
+          }
+          @media all and (min-width: 1100px) and (max-width: 2000px) {
+            font-size: 18px;
+          }
+          column-gap: 30em;
+          background-color: none;
+
+          a {
+            @media all and (min-width: 768px) and (max-width: 1099px) {
+              font-size: 14.8px;
+            }
+            @media all and (min-width: 1100px) and (max-width: 2000px) {
+              font-size: 14.8px;
+            }
+            color: white;
+            font-family: "Pretendard-Regular";
+            letter-spacing: -0.03em;
+          }
+
+          ${openingState &&
+          css`
+            border: solid;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1;
+            border-color: #e6e8ea;
+            border-width: 1px;
+            background-color: white;
+            transition: 0.5s all;
+
+            a {
+              color: #4e5968;
+            }
+          `}
+
+          ${scrollState &&
+          css`
+            // border: solid;
+            // border-top: 0;
+            // border-left: 0;
+            // border-right: 0;
+            // border-bottom: 1;
+            // border-color: #e6e8ea;
+            // border-width: 1px;
+            background-color: rgb(47, 53, 62, 0.7);
+            transition: 0.5s all;
+          `}
+
+          a {
+            color: #4e5968;
+          }
+        `}
+      >
+        <Image
+          alt="로고"
+          src={logo}
+          css={css`
+            height: auto;
+            width: 155px;
+            transition: 0.4s all;
+            &:hover {
+              opacity: 70%;
+            }
+          `}
+        />
+
+        <nav
+          css={css`
+            height: 100%;
+            display: flex;
+            column-gap: 1.3em;
+            transition: 0.4s all;
+
+            a {
+              border: none;
+              box-sizing: border-box;
+              padding: 0.9em;
+              border-radius: 0.5em;
+              transition: 0.5s all;
+            }
+            a:hover {
+              background-color: rgba(2, 32, 71, 0.05);
+            }
+          `}
+        >
+          <Link href="/" tabIndex={-1}>
+            조직 소개
+          </Link>
+          <Link href="/procedure" tabIndex={-1}>
+            합류 여정
+          </Link>
+          <Link href="/faq" tabIndex={-1}>
+            자주 묻는 질문
           </Link>
         </nav>
       </div>
