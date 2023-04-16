@@ -2,7 +2,7 @@ import GlobalStyles from "@/styles/GlobalStyles";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { IndexHeader } from "../src/components/common/component/component";
+import { Header } from "../src/components/common/component/component";
 import wrapper from "@/src/app/store";
 
 function App({ Component, pageProps }: AppProps) {
@@ -21,25 +21,16 @@ function App({ Component, pageProps }: AppProps) {
         <meta property="og:url" content="http://knu-likelion.org/" />
         <meta property="og:title" content="멋쟁이사자처럼 강남대학교" />
         <meta property="og:image" content="https://url.kr/mzrxb6" />
-        <meta
-          property="og:description"
-          content="멋쟁이사자처럼 강남대학교 지원 사이트"
-        />
-        <meta
-          property="og:site_name"
-          content="멋쟁이사자처럼 강남대학교 지원 사이트"
-        />
+        <meta property="og:description" content="멋쟁이사자처럼 강남대학교" />
+        <meta property="og:site_name" content="멋쟁이사자처럼 강남대학교" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-          name="description"
-          content="멋쟁이사자처럼 강남대학교 지원 사이트"
-        />
+        <meta name="description" content="멋쟁이사자처럼 강남대학교" />
         <title> 멋쟁이사자처럼 </title>
       </Head>
       <GlobalStyles />
-      <IndexHeader />
+      <Header />
       <Component {...pageProps} />
     </>
   );
