@@ -31,6 +31,11 @@ export default function Introduce() {
         <article
           css={css`
             width: 1000px;
+            @media all and (min-width: 768px) and (max-width: 1099px) {
+              width: auto;
+              display: inline-flex;
+              flex-direction: column;
+            }
           `}
         >
           <TitleOfBlue

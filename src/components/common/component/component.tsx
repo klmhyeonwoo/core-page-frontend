@@ -219,6 +219,12 @@ export function Category() {
         row-gap: 4em;
         column-gap: 4em;
         margin-top: 4em;
+        @media all and (min-width: 768px) and (max-width: 1099px) {
+          width: auto;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+        }
       `}
     >
       <ItemOfCategory
