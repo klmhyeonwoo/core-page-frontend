@@ -21,3 +21,11 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      layout: "main",
+    },
+  };
+};

@@ -20,38 +20,18 @@ export const BrandingImage = forwardRef(
         css={css`
           ${alt === "블록" &&
           css`
-            margin-top: 5em;
-            margin-right: 4em;
-            @media all and (min-width: 0px) and (max-width: 1099px) {
-              margin: auto;
-              margin-bottom: 5em;
-              margin-top: 5em;
-            }
+            margin-top: 1em;
+            margin-right: 6em;
           `}
           ${alt === "책" &&
           css`
-            margin-top: 6em;
+            margin-top: 2.5em;
             margin-left: auto;
-            margin-right: -7em;
-            @media all and (min-width: 0px) and (max-width: 1099px) {
-              margin: auto;
-              margin-top: 5em;
-              margin-right: 5em;
-            }
-            @media all and (min-width: 0px) and (max-width: 600px) {
-              margin: auto;
-              margin-top: 5em;
-              margin-left: 7em;
-            }
           `}
           ${alt === "지구" &&
           css`
-            margin-top: 6.5em;
+            margin-top: 2em;
             margin-left: auto;
-            @media all and (min-width: 0px) and (max-width: 1099px) {
-              margin: auto;
-              margin-top: 5em;
-            }
           `}
         `}
       >
@@ -60,14 +40,14 @@ export const BrandingImage = forwardRef(
           css={css`
             display: none;
             width: auto;
-            height: 14.5em;
+            height: 23em;
             ${alt === "블록" &&
             css`
-              height: 13.5em;
+              height: 21.5em;
             `}
             ${alt === "책" &&
             css`
-              height: 15.5em;
+              height: 21em;
             `}
             animation: ${fadeUp} 1.4s ease-in-out;
           `}
