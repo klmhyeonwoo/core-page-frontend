@@ -68,11 +68,12 @@ export const MainArticle = () => {
         flex-direction: column;
         align-items: center;
         z-index: 1;
+        text-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
       `}
       ref={TitleRef}
     >
       <MainTitle
-        text={`우아하고 혁신적인 브랜딩을 실현하는 \n 우리는 멋쟁이사자처럼 입니다`}
+        text={`우아하고 혁신적인 브랜딩을 실현하는 \n 우리는 멋쟁이사자처럼 팀 입니다`}
       />
       <ApplyButton />
     </div>

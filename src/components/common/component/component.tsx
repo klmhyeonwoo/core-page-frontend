@@ -11,12 +11,17 @@ import logo2 from "../../../../images/logo2.png";
 import instagram from "../../../../images/footer/instagram.svg";
 import facebook from "../../../../images/footer/facebook.svg";
 import channelTalk from "../../../../images/footer/channelTalk.svg";
+import category1 from "../../../../images/category/category1.png";
+import category2 from "../../../../images/category/category2.png";
+import category3 from "../../../../images/category/category3.png";
+import category4 from "../../../../images/category/category4.png";
 import { useInView } from "react-intersection-observer";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { TextfadeUp, fadeIn, fadeUp } from "@/styles/effect";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/src/app/store";
+import { url } from "inspector";
 
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
@@ -155,19 +160,24 @@ export const ItemOfCategory = forwardRef(
             height: 440px;
             border-radius: 40px;
             box-shadow: 5px 5px 15px 10px rgb(0, 0, 0, 0.16);
+            text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
             padding: 2.5em;
 
-            color: #333d4b;
+            color: white;
             font-family: "Pretendard-ExtraBold";
             letter-spacing: -0.03em;
-            font-size: 24px;
+            font-size: 27px;
+            background: url(${src.src});
+            background-position: 60% 40%;
+            object-fit: cover; /* 아래에서 다룰 속성값 */
 
             flex-direction: column;
             align-items: center;
             animation: ${fadeUp} 1.7s ease-in-out;
+            transition: 0.4s all;
 
             &:hover {
-              filter: blur(20px);
+              transform: translateY(-5%);
             }
           `}
           ref={categoryRef}
@@ -176,13 +186,13 @@ export const ItemOfCategory = forwardRef(
             css={css`
               float: left;
               margin-right: auto;
-              margin-bottom: 2.5em;
+              text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.2);
             `}
           >
             {topText} <br />
             {bottomText}
           </span>
-          <Image
+          {/* <Image
             src={src}
             css={css`
               width: 300px;
@@ -194,7 +204,19 @@ export const ItemOfCategory = forwardRef(
               `}
             `}
             alt={alt}
-          />
+          /> */}
+          <span
+            css={css`
+              font-size: 16px;
+              margin-top: 2em;
+              font-family: "Pretendard-Medium";
+              text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.2);
+              margin-right: auto;
+              line-height: 1.4em;
+            `}
+          >
+            {alt}
+          </span>
         </div>
       </div>
     );
@@ -222,30 +244,30 @@ export function Category() {
       `}
     >
       <ItemOfCategory
-        text={`다양한 학생들의 코딩 입문을 위해 \n 온 · 오프라인 학습을 지원해요`}
-        src={study}
-        alt="학습"
+        text={`학생들의 코딩 입문을 위해 \n 온 · 오프라인 학습을 지원해요`}
+        src={category1}
+        alt="멋쟁이사자처럼의 온라인 강의 플랫폼 `테킷`을 통해 초급자를 위한 다양한 VOD 강의를 무료로 제공해요"
         ref={studyRef}
         scrollState={studyState}
       />
       <ItemOfCategory
         text={`서비스 빌딩을 위한 \n 입체적인 교육을 진행해요`}
-        src={education}
-        alt="교육"
+        src={category2}
+        alt="멋쟁이사자처럼에서는 웹 개발 교육 뿐만 아니라 서비스 기획, UI / UX 디자인 등 자신의 서비스를 빌딩하기 위한 다양한 역량을 배울 수 있답니다"
         ref={educationRef}
         scrollState={educationState}
       />
       <ItemOfCategory
         text={`아이디어 빌딩을 위한 \n 아이디어 톤을 진행해요`}
-        src={idea}
-        alt="아이디어톤"
+        src={category3}
+        alt="전국의 멋쟁이사자처럼 학생들이 모여 아이디어를 공유하는 네트워킹의 장 아이디어 톤을 진행하고, 이 아이디어를 실현시키는 과정을 경험해요"
         ref={ideaRef}
         scrollState={ideaState}
       />
       <ItemOfCategory
         text={`혁신적인 서비스 개발을 위한 \n 해커톤을 진행해요`}
-        src={hackerton}
-        alt="해커톤"
+        src={category4}
+        alt="실제 아이디어를 구현하고 서비스 플로우를 경험할 수 있는 과정을 경험하는 축제의 장, 멋쟁이사자처럼의 꽃인 해커톤을 진행해요"
         ref={hackertonRef}
         scrollState={hackertonState}
       />
@@ -373,6 +395,7 @@ export const Header = () => {
               &:hover {
                 opacity: 70%;
               }
+              text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
             `}
           />
         ) : (
@@ -412,6 +435,10 @@ export const Header = () => {
                   }
                 `
               : css`
+                  a {
+                    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+                  }
+
                   a:hover {
                     background-color: rgba(217, 217, 255, 0.11);
                   }
@@ -588,8 +615,8 @@ export const Footer = () => {
         justify-content: center;
         align-items: center;
         background-color: #f9fafb;
-        padding-top: 8em;
-        padding-bottom: 8em;
+        padding-top: 5em;
+        padding-bottom: 5em;
       `}
     >
       <div
@@ -613,7 +640,7 @@ export const Footer = () => {
           display: flex;
           flex-direction: column;
           row-gap: 0.6em;
-          font-size: 15px;
+          font-size: 14px;
         `}
       >
         <span
@@ -626,14 +653,24 @@ export const Footer = () => {
             // @media all and (min-width: 1100px) and (max-width: 2000px) {
             //   font-size: 15.7px !important;
             // }
-            font-size: 17px;
+            font-size: 16px;
             margin-bottom: 0.6em;
           `}
         >
-          멋쟁이사자처럼 강남대학교 11기
+          멋쟁이사자처럼 강남대학교
         </span>
-        <span>경기도 용인시 기흥구 강남로 40 강남대학교 이공관</span>
-        <span>Copyright ⓒ 2023 likelion knu All rights reserved.</span>
+        {/* <span>경기도 용인시 기흥구 강남로 40 강남대학교 이공관</span> */}
+        <span>
+          실습실 : 경기도 용인시 기흥구 강남로 40 강남대학교 후생관 104호
+        </span>
+        <span>
+          동아리실 : 경기도 용인시 기흥구 강남로 40 강남대학교 후생관
+          멋쟁이사자처럼
+        </span>
+        <span> 프로젝트 개발 : 프로젝트 코어 TF</span>
+        <span>
+          Copyright ⓒ 2023 Kangnam Univ. Likelion All rights reserved.
+        </span>
         <FooterSNS />
       </div>
     </section>
@@ -645,7 +682,7 @@ export const FooterSNS = () => {
     <div
       css={css`
         display: flex;
-        column-gap: 0.4em;
+        column-gap: 0.7em;
       `}
     >
       <FooterIcon src={facebook} alt="페이스북" />
@@ -656,14 +693,34 @@ export const FooterSNS = () => {
 };
 
 export const FooterIcon = ({ src, alt }: imgProps) => {
+  const url: { [key: string]: string } = {
+    페이스북: "https://www.facebook.com/groups/1215037368599547",
+    인스타그램: "https://www.instagram.com/likelion.knu/",
+    채널톡: "https://knu-likelion.channel.io/lounge",
+  };
+
+  const select = alt ? url[alt] : "#";
+
   return (
-    <Image
-      src={src}
-      alt={`${alt}`}
-      css={css`
-        width: 35px;
-        height: auto;
-      `}
-    />
+    <Link href={select} target="_blank">
+      <Image
+        src={src}
+        alt={`${alt}`}
+        css={css`
+          margin-top: 1em;
+          width: 2.4em;
+          height: auto;
+          cursor: pointer;
+          opacity: 60%;
+          filter: brightness(90%);
+          transition: 0.4s all;
+
+          &:hover {
+            opacity: 100%;
+            filter: brightness(100%);
+          }
+        `}
+      />
+    </Link>
   );
 };
