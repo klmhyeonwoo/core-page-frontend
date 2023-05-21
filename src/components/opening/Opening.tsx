@@ -33,12 +33,18 @@ export default function Opening() {
         padding-top: 10em;
         padding-bottom: 12em;
         background-color: #f9fafb;
+
+        @media (max-width: 1000px) {
+          padding-left: 1.5em;
+          padding-right: 1.5em;
+          box-sizing: border-box;
+        }
       `}
       ref={openingRef}
     >
       <article
         css={css`
-          width: 1000px;
+          width: 62.5em;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -47,9 +53,20 @@ export default function Opening() {
           color: black;
           font-family: "Pretendard-Medium";
           letter-spacing: -0.03em;
-          font-size: 25px;
+          font-size: 1.56em;
+
+          @media (max-width: 481px) {
+            font-size: 1.2em;
+          }
+          @media (min-width: 481px) and (max-width: 767px) {
+            font-size: 1.5em;
+          }
+          @media (min-width: 768px) and (max-width: 1099px) {
+            font-size: 1.56em;
+          }
 
           span {
+            font-size: 1em;
             display: block;
           }
         `}
@@ -64,9 +81,7 @@ export default function Opening() {
           `}
         />
         <span>아이디어를 실현하고, 혁신적인 서비스를 만들 수 있는 곳</span>
-        <span>
-          다양한 팀원들과 네트워킹을 통해 서비스 플로우를 경험해보세요
-        </span>
+        <span>다양한 네트워킹을 통해 서비스 플로우를 경험해보세요</span>
         <span>멋쟁이사자처럼과 함께라면 새로운 경험을 할 수 있을거에요</span>
       </article>
     </section>

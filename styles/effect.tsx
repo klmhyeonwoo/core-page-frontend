@@ -15,6 +15,30 @@ export const fadeIn = keyframes`
 }
 `;
 
+export const flow = keyframes`
+0% {
+    transform: translateX(0);
+}
+50% {
+    transform: translateX(-100%);
+}
+50.01%{
+    transform: translateX(100%);
+}
+100%{
+    transform: translateX(0);
+}
+`;
+
+export const cloneflow = keyframes`
+    from { 
+        transform: translateX(0); 
+    }
+    to { 
+        transform: translateX(-200%); 
+    }
+  `;
+
 export const fadeUp = keyframes`
 0% {
     opacity: 40%;

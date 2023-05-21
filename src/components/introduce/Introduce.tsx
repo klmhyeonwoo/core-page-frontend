@@ -26,11 +26,16 @@ export default function Introduce() {
           justify-content: center;
           padding-top: 10em;
           padding-bottom: 10em;
+
+          @media (max-width: 1100px) {
+            padding: 3em;
+            box-sizing: border-box;
+          }
         `}
       >
         <article
           css={css`
-            width: 1000px;
+            width: 62.5em;
           `}
         >
           <TitleOfBlue
@@ -39,7 +44,7 @@ export default function Introduce() {
             scrollState={blueTitleState ? true : false}
           />
           <TitleOfBlack
-            text={`멋쟁이사자처럼 강남대학교 입니다. \n 우리는 무엇을 하는 단체일까요?`}
+            text={`멋쟁이사자처럼 \n 우리는 무엇을 하는 단체일까요?`}
             ref={blackTitleRef}
             scrollState={blackTitleState ? true : false}
           />

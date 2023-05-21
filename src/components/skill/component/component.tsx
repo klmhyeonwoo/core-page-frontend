@@ -29,7 +29,7 @@ import sass from "../../../../images/skill/sass.png";
 import xd from "../../../../images/skill/xd.png";
 import figma from "../../../../images/skill/figma.png";
 import { forwardRef, useEffect, useRef } from "react";
-import { TextfadeUp } from "@/styles/effect";
+import { TextfadeUp, cloneflow, flow } from "@/styles/effect";
 
 export const SkillSection = forwardRef(
   ({ skill, scrollState }: skillProps, ref: any) => {
@@ -42,7 +42,15 @@ export const SkillSection = forwardRef(
     }, [scrollState]);
 
     return (
-      <div ref={ref}>
+      <div
+        ref={ref}
+        css={css`
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 5em;
+        `}
+      >
         {skill === "백엔드" && (
           <div
             ref={skillRef}
@@ -90,14 +98,18 @@ SkillSection.displayName = "SkillSection";
 
 export const SkillTitle = ({ text }: textProps) => {
   return (
-    <>
+    <div
+      css={css`
+        width: 100%;
+      `}
+    >
       <span
         css={css`
           display: block;
           color: #333d4b;
           font-family: "Pretendard-Bold";
           letter-spacing: -0.03em;
-          font-size: 23px;
+          font-size: 1.43em;
         `}
       >
         {text}
@@ -111,7 +123,7 @@ export const SkillTitle = ({ text }: textProps) => {
           margin-top: 1em;
         `}
       />
-    </>
+    </div>
   );
 };
 
@@ -120,8 +132,18 @@ const DesignSkill = () => {
     <div
       css={css`
         display: flex;
-        column-gap: 2em;
         margin-top: 1.5em;
+        overflow: auto;
+
+        @media (max-width: 481px) {
+          font-size: 4px;
+        }
+        @media (min-width: 481px) and (max-width: 767px) {
+          font-size: 6px;
+        }
+        @media (min-width: 768px) and (max-width: 1099px) {
+          font-size: 10px;
+        }
       `}
     >
       <SkillImage src={xd} alt={"xd"} />
@@ -135,50 +157,159 @@ const FrontendSkill = () => {
     <div
       css={css`
         display: flex;
-        column-gap: 2em;
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
+        overflow: hidden;
       `}
     >
-      <SkillImage src={html} alt={"html"} />
-      <SkillImage src={css2} alt={"css"} />
-      <SkillImage src={javascript} alt={"javascript"} />
-      <SkillImage src={react} alt={"react"} />
-      <SkillImage src={next} alt={"next"} />
-      <SkillImage src={typescript} alt={"typescript"} />
-      <SkillImage src={redux} alt={"redux"} />
-      <SkillImage src={emotion} alt={"emotion"} />
-      <SkillImage src={styled} alt={"styled"} />
-      <SkillImage src={sass} alt={"sass"} />
-      <SkillImage src={github} alt={"github"} />
-      <SkillImage src={git} alt={"git"} />
+      <div
+        css={css`
+          display: flex;
+          margin-top: 1.5em;
+          margin-bottom: 1.5em;
+          animation: 33s linear 0s infinite normal forwards running ${flow};
+
+          @media (max-width: 481px) {
+            font-size: 4px;
+          }
+          @media (min-width: 481px) and (max-width: 767px) {
+            font-size: 6px;
+          }
+          @media (min-width: 768px) and (max-width: 1099px) {
+            font-size: 10px;
+          }
+        `}
+      >
+        <SkillImage src={html} alt={"html"} />
+        <SkillImage src={css2} alt={"css"} />
+        <SkillImage src={javascript} alt={"javascript"} />
+        <SkillImage src={react} alt={"react"} />
+        <SkillImage src={next} alt={"next"} />
+        <SkillImage src={typescript} alt={"typescript"} />
+        <SkillImage src={redux} alt={"redux"} />
+        <SkillImage src={emotion} alt={"emotion"} />
+        <SkillImage src={styled} alt={"styled"} />
+        <SkillImage src={sass} alt={"sass"} />
+        <SkillImage src={github} alt={"github"} />
+        <SkillImage src={git} alt={"git"} />
+      </div>
+      <div
+        css={css`
+          display: flex;
+          margin-top: 1.5em;
+          margin-bottom: 1.5em;
+          animation: 33s linear 0s infinite normal forwards running ${cloneflow};
+
+          @media (max-width: 481px) {
+            font-size: 4px;
+          }
+          @media (min-width: 481px) and (max-width: 767px) {
+            font-size: 6px;
+          }
+          @media (min-width: 768px) and (max-width: 1099px) {
+            font-size: 10px;
+          }
+        `}
+      >
+        <SkillImage src={html} alt={"html"} />
+        <SkillImage src={css2} alt={"css"} />
+        <SkillImage src={javascript} alt={"javascript"} />
+        <SkillImage src={react} alt={"react"} />
+        <SkillImage src={next} alt={"next"} />
+        <SkillImage src={typescript} alt={"typescript"} />
+        <SkillImage src={redux} alt={"redux"} />
+        <SkillImage src={emotion} alt={"emotion"} />
+        <SkillImage src={styled} alt={"styled"} />
+        <SkillImage src={sass} alt={"sass"} />
+        <SkillImage src={github} alt={"github"} />
+        <SkillImage src={git} alt={"git"} />
+      </div>
     </div>
   );
 };
 
 const BackendSkill = () => {
+  const backendRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (backendRef.current) {
+      console.log("!!!!", backendRef);
+      console.log("??", backendRef.current?.offsetWidth);
+    }
+  });
+
   return (
-    <div
+    <article
       css={css`
         display: flex;
-        column-gap: 2em;
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
+        overflow: hidden;
       `}
     >
-      <SkillImage src={java} alt={"aws"} />
-      <SkillImage src={spring} alt={"spring"} />
-      <SkillImage src={gradle} alt={"gradle"} />
-      <SkillImage src={mysql} alt={"mysql"} />
-      <SkillImage src={aws} alt={"aws"} />
-      <SkillImage src={gcp} alt={"gcp"} />
-      <SkillImage src={linux} alt={"linux"} />
-      <SkillImage src={github} alt={"github"} />
-      <SkillImage src={git} alt={"git"} />
-      <SkillImage src={maven} alt={"maven"} />
-      <SkillImage src={postman} alt={"postman"} />
-      <SkillImage src={inteliJ} alt={"inteliJ"} />
-    </div>
+      <div
+        css={css`
+          display: flex;
+          margin-top: 1.5em;
+          margin-bottom: 1.5em;
+
+          // overflow: auto;
+          animation: 33s linear 0s infinite normal forwards running ${flow};
+
+          @media (max-width: 481px) {
+            font-size: 4px;
+          }
+          @media (min-width: 481px) and (max-width: 767px) {
+            font-size: 6px;
+          }
+          @media (min-width: 768px) and (max-width: 1099px) {
+            font-size: 10px;
+          }
+        `}
+        ref={backendRef}
+      >
+        <SkillImage src={java} alt={"aws"} />
+        <SkillImage src={spring} alt={"spring"} />
+        <SkillImage src={gradle} alt={"gradle"} />
+        <SkillImage src={mysql} alt={"mysql"} />
+        <SkillImage src={aws} alt={"aws"} />
+        <SkillImage src={gcp} alt={"gcp"} />
+        <SkillImage src={linux} alt={"linux"} />
+        <SkillImage src={github} alt={"github"} />
+        <SkillImage src={git} alt={"git"} />
+        <SkillImage src={maven} alt={"maven"} />
+        <SkillImage src={postman} alt={"postman"} />
+        <SkillImage src={inteliJ} alt={"inteliJ"} />
+      </div>
+      <div
+        css={css`
+          display: flex;
+          margin-top: 1.5em;
+
+          margin-bottom: 1.5em;
+          animation: 33s linear 0s infinite normal none running ${cloneflow};
+          @media (max-width: 481px) {
+            font-size: 4px;
+          }
+          @media (min-width: 481px) and (max-width: 767px) {
+            font-size: 6px;
+          }
+          @media (min-width: 768px) and (max-width: 1099px) {
+            font-size: 10px;
+          }
+        `}
+        ref={backendRef}
+      >
+        <SkillImage src={java} alt={"aws"} />
+        <SkillImage src={spring} alt={"spring"} />
+        <SkillImage src={gradle} alt={"gradle"} />
+        <SkillImage src={mysql} alt={"mysql"} />
+        <SkillImage src={aws} alt={"aws"} />
+        <SkillImage src={gcp} alt={"gcp"} />
+        <SkillImage src={linux} alt={"linux"} />
+        <SkillImage src={github} alt={"github"} />
+        <SkillImage src={git} alt={"git"} />
+        <SkillImage src={maven} alt={"maven"} />
+        <SkillImage src={postman} alt={"postman"} />
+        <SkillImage src={inteliJ} alt={"inteliJ"} />
+      </div>
+    </article>
   );
 };
 
@@ -187,8 +318,10 @@ const SkillImage = ({ src, alt }: imgProps) => {
     <Image
       src={src}
       css={css`
-        width: 3.37em;
+        width: 6vw;
         height: auto;
+        margin-left: 1em;
+        margin-right: 1em;
       `}
       alt={`${alt}`}
     />

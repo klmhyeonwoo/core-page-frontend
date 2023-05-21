@@ -41,7 +41,7 @@ export const TitleOfBlue = forwardRef(
             color: #4f85e8;
             font-family: "Pretendard-Bold";
             letter-spacing: -0.03em;
-            font-size: 23px;
+            font-size: 1.43em;
             animation: ${TextfadeUp} 1s ease-in-out;
           `}
           ref={blueRef}
@@ -76,11 +76,21 @@ export const TitleOfBlack = forwardRef(
             color: #333d4b;
             font-family: "Pretendard-ExtraBold";
             letter-spacing: -0.03em;
-            font-size: 34px;
+            font-size: 35px;
             margin-top: 0.5em;
             line-height: 1.3em;
             margin-bottom: 1.6em;
             animation: ${TextfadeUp} 1.3s ease-in-out;
+
+            @media (max-width: 481px) {
+              font-size: 22px;
+            }
+            @media (min-width: 481px) and (max-width: 767px) {
+              font-size: 27px;
+            }
+            @media (min-width: 768px) and (max-width: 1099px) {
+              font-size: 32px;
+            }
           `}
           ref={blackRef}
         >
@@ -112,7 +122,7 @@ export const Description = forwardRef(
             color: #333d4b;
             font-family: "Pretendard-Medium";
             letter-spacing: -0.03em;
-            font-size: 18px;
+            font-size: 1.1em;
             line-height: 1.5em;
             animation: ${TextfadeUp} 1.5s ease-in-out;
           `}
@@ -157,8 +167,9 @@ export const ItemOfCategory = forwardRef(
           css={css`
             display: none;
             box-sizing: border-box;
-            height: 440px;
-            border-radius: 40px;
+            font-size: 1.68em;
+            height: 16.2em;
+            border-radius: 2.3rem;
             box-shadow: 5px 5px 15px 10px rgb(0, 0, 0, 0.16);
             text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
             padding: 2.5em;
@@ -166,7 +177,6 @@ export const ItemOfCategory = forwardRef(
             color: white;
             font-family: "Pretendard-ExtraBold";
             letter-spacing: -0.03em;
-            font-size: 27px;
             background: url(${src.src});
             background-position: 60% 40%;
             object-fit: cover; /* 아래에서 다룰 속성값 */
@@ -234,13 +244,18 @@ export function Category() {
   return (
     <article
       css={css`
-        width: 1000px;
+        max-width: 62.5em;
+        width: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
         border-box: box-sizing;
         row-gap: 4em;
         column-gap: 4em;
         margin-top: 4em;
+        @media (max-width: 1000px) {
+          display: flex;
+          flex-direction: column;
+        }
       `}
     >
       <ItemOfCategory

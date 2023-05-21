@@ -19,16 +19,16 @@ export default function Think() {
   return (
     <article
       css={css`
-        width: 1000px;
+        width: 62.5em;
         display: flex;
         box-sizing: border-box;
+        align-items: center;
+
         @media all and (min-width: 0px) and (max-width: 1099px) {
-          width: auto;
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 3em;
+          width: 80vw;
+          display: flex;
+          align-items: left;
+          justify-content: left;
         }
       `}
     >
@@ -39,7 +39,11 @@ export default function Think() {
         scrollState={brandingImageState}
         alt="블록"
       />
-      <div>
+      <div
+        css={css`
+          z-index: 1;
+        `}
+      >
         <TitleOfBlue
           text="생각의 미학"
           ref={blueTitleRef}

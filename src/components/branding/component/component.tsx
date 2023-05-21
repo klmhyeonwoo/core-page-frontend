@@ -33,6 +33,18 @@ export const BrandingImage = forwardRef(
             margin-top: 2em;
             margin-left: auto;
           `}
+
+          @media (max-width: 1100px) {
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            display: none;
+
+            width: 100%;
+            margin: 0;
+            justify-content: right;
+            align-items: center;
+          }
         `}
       >
         <Image
@@ -40,14 +52,17 @@ export const BrandingImage = forwardRef(
           css={css`
             display: none;
             width: auto;
-            height: 23em;
+            height: 26em;
+
+            justify-content: center;
+            align-items: center;
             ${alt === "블록" &&
             css`
-              height: 21.5em;
+              height: 23em;
             `}
             ${alt === "책" &&
             css`
-              height: 21em;
+              height: 24em;
             `}
             animation: ${fadeUp} 1.4s ease-in-out;
           `}

@@ -2,6 +2,37 @@ html {
   background-color: white;
   font-size: 16px;
   font-display: block;
+  width:100%;
+}
+
+/**
+  태블릿 가로 : 768 ~ 1099px
+  모바일 가로, 태블릿 : 480px ~ 767px
+  모바일 : 480px
+**/
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+} 
+
+@media (min-width: 481px) and (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {

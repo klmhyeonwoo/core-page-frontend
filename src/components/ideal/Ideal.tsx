@@ -26,7 +26,11 @@ export default function Ideal() {
     >
       <article
         css={css`
-          width: 1000px;
+          width: 62.5em;
+
+          @media (max-width: 1100px) {
+            padding: 3em;
+          }
         `}
       >
         <TitleOfBlue
