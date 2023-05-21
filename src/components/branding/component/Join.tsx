@@ -19,20 +19,25 @@ export default function Join() {
   return (
     <article
       css={css`
-        width: 1000px;
+        width: 62.5em;
         display: flex;
         box-sizing: border-box;
+        align-items: center;
+
         @media all and (min-width: 0px) and (max-width: 1099px) {
-          width: auto;
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+          width: 80vw;
+          display: flex;
+          align-items: left;
+          justify-content: left;
           padding: 3em;
         }
       `}
     >
-      <div>
+      <div
+        css={css`
+          z-index: 1;
+        `}
+      >
         <TitleOfBlue
           text="합류 이야기"
           ref={blueTitleRef}

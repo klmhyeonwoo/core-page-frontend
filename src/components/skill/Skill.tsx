@@ -25,7 +25,12 @@ export default function Skill() {
     >
       <article
         css={css`
-          width: 1000px;
+          max-width: 62.5em;
+          width: auto;
+
+          @media (max-width: 1100px) {
+            padding: 3em;
+          }
         `}
       >
         <TitleOfBlue

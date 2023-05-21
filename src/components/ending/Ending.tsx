@@ -62,21 +62,35 @@ export default function Ending() {
           display: flex;
           align-items: center;
           justify-content: center;
+
+          @media (max-width: 1000px) {
+            padding-left: 1em;
+            padding-right: 1em;
+            box-sizing: border-box;
+          }
         `}
         ref={endingRef}
       >
         <article
           css={css`
-            width: 1000px;
+            width: 62.5em;
             height: 800px;
             background-image: url(${ending.src});
 
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+
+            @media (max-width: 1000px) {
+              padding-left: 1.3em;
+              padding-right: 1.3em;
+              box-sizing: border-box;
+              background-position: 40% 30%;
+            }
           `}
           ref={backgroundRef}
         >
@@ -94,12 +108,13 @@ export default function Ending() {
               color: #4f85e8;
               font-family: "Pretendard-Bold";
               letter-spacing: -0.03em;
-              font-size: 30px;
+              font-size: 2.5em;
               color: white;
               z-index: 1;
+              text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
             `}
           >
-            지금 이제 우리는 새로운 브랜딩을 펼쳐갑니다.
+            멋사강남의 <br /> 새로운 브랜딩
           </span>
         </article>
       </section>

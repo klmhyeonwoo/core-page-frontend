@@ -231,9 +231,11 @@ export const BackGroundImg = ({ src }: imgProps) => {
         src={src}
         alt="백그라운드 이미지"
         css={css`
+          position: absolute;
           width: 100% !important;
           height: 100% !important;
           animation: ${fadeIn} 0.7s ease-in-out;
+          object-fit: cover;
         `}
       />
       {/* <Icon src={box} />
@@ -253,14 +255,25 @@ export const MainTitle = ({ text }: textProps) => {
     <>
       <div
         css={css`
+          width: 20em;
           text-align: center;
           font-family: "Pretendard-ExtraBold";
-          font-size: 55px;
+          font-size: 3.43em;
           letter-spacing: -0.04em;
           // color: #333d4b;
           color: white;
           z-index: 1;
           line-height: 1.3em;
+
+          @media (max-width: 481px) {
+            font-size: 2em;
+          }
+          @media (min-width: 481px) and (max-width: 767px) {
+            font-size: 2.5em;
+          }
+          @media (min-width: 768px) and (max-width: 1099px) {
+            font-size: 3em;
+          }
         `}
       >
         {topText} <br />

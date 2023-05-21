@@ -28,6 +28,7 @@ export const IdealArticle = forwardRef(
             grid-template-columns: 1fr 1fr;
             row-gap: 4em;
             animation: ${TextfadeUp} 1.5s ease-in-out;
+            column-gap: 1.3em;
           `}
           ref={contentRef}
         >
@@ -110,7 +111,16 @@ export const IdealTitle = ({ text }: textProps) => {
         color: #333d4b;
         z-index: 1;
         line-height: 1.3em;
-        h
+
+        @media (max-width: 481px) {
+          font-size: 18px;
+        }
+        @media (min-width: 481px) and (max-width: 767px) {
+          font-size: 20px;
+        }
+        @media (min-width: 768px) and (max-width: 1099px) {
+          font-size: 22px;
+        }
       `}
     >
       {text}
@@ -129,6 +139,16 @@ export const IdealContent = ({ text }: textProps) => {
         color: #6b7684;
         z-index: 1;
         line-height: 1.3em;
+
+        @media (max-width: 481px) {
+          font-size: 15px;
+        }
+        @media (min-width: 481px) and (max-width: 767px) {
+          font-size: 16px;
+        }
+        @media (min-width: 768px) and (max-width: 1099px) {
+          font-size: 17px;
+        }
       `}
     >
       {text.split("\n").map((item, key) => {
