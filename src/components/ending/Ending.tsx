@@ -114,7 +114,7 @@ export default function Ending() {
               text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
             `}
           >
-            멋사강남의 <br /> 새로운 브랜딩
+            새로운 브랜딩으로 <br /> 도약을 시작합니다
           </span>
         </article>
       </section>

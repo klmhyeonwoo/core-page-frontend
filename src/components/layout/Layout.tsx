@@ -11,7 +11,6 @@ export default function Layout({ children }: AppLayoutProps) {
       layout: (
         <>
           <Header />
-          <p> test</p>
         </>
       ),
     },

@@ -49,11 +49,12 @@ export default function Opening() {
           flex-direction: column;
           align-items: center;
           justify-contents: center;
-          row-gap: 1em;
+          row-gap: 0.8em;
           color: black;
-          font-family: "Pretendard-Medium";
+          font-family: "Pretendard-Bold";
           letter-spacing: -0.03em;
           font-size: 1.56em;
+          color: #333d4b;
 
           @media (max-width: 481px) {
             font-size: 1.2em;
@@ -76,12 +77,12 @@ export default function Opening() {
           src={lion}
           alt="사자 이모지"
           css={css`
-            width: 7em;
+            width: 8em;
             height: auto;
           `}
         />
-        <span>아이디어를 실현하고, 혁신적인 서비스를 만들 수 있는 곳</span>
         <span>다양한 네트워킹을 통해 서비스 플로우를 경험해보세요</span>
+        <span>아이디어를 실현하고 혁신적인 서비스를 만들 수 있는 곳</span>
         <span>멋쟁이사자처럼과 함께라면 새로운 경험을 할 수 있을거에요</span>
       </article>
     </section>

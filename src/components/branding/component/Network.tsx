@@ -24,11 +24,10 @@ export default function Network() {
         box-sizing: border-box;
         align-items: center;
 
-        @media all and (min-width: 0px) and (max-width: 1099px) {
-          width: 80vw;
-          display: flex;
-          align-items: left;
-          justify-content: left;
+        @media (max-width: 1100px) {
+          padding-left: 3em;
+          padding-right: 3em;
+          width: 100%;
         }
       `}
     >

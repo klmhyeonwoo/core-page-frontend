@@ -168,7 +168,8 @@ export const ItemOfCategory = forwardRef(
             display: none;
             box-sizing: border-box;
             font-size: 1.68em;
-            height: 16.2em;
+            // height: 16.2em;
+            height: 100%;
             border-radius: 2.3rem;
             box-shadow: 5px 5px 15px 10px rgb(0, 0, 0, 0.16);
             text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
@@ -223,6 +224,16 @@ export const ItemOfCategory = forwardRef(
               text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.2);
               margin-right: auto;
               line-height: 1.4em;
+
+              @media (max-width: 481px) {
+                font-size: 15px;
+              }
+              @media (min-width: 481px) and (max-width: 767px) {
+                font-size: 16px;
+              }
+              @media (min-width: 768px) and (max-width: 1099px) {
+                font-size: 16px;
+              }
             `}
           >
             {alt}
@@ -252,6 +263,7 @@ export function Category() {
         row-gap: 4em;
         column-gap: 4em;
         margin-top: 4em;
+
         @media (max-width: 1000px) {
           display: flex;
           flex-direction: column;
@@ -645,7 +657,7 @@ export const Footer = () => {
           // @media all and (min-width: 1100px) and (max-width: 2000px) {
           //   font-size: 16px;
           // }
-          width: 1000px;
+          width: 62.5rem;
           height: 100%;
           font-family: "Pretendard-Regular";
           letter-spacing: -0.03em;
@@ -656,6 +668,12 @@ export const Footer = () => {
           flex-direction: column;
           row-gap: 0.6em;
           font-size: 14px;
+
+          @media (max-width: 1100px) {
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            width: 100%;
+          }
         `}
       >
         <span
