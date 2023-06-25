@@ -7,6 +7,7 @@ import {
   SideHeader,
 } from "../src/components/common/component/component";
 import wrapper from "@/src/app/store";
+import ScrollToTop from "@/src/hook/ScrollToTop";
 
 function App({ Component, pageProps }: AppProps) {
   switch (pageProps.layout) {
@@ -78,6 +79,7 @@ function App({ Component, pageProps }: AppProps) {
             />
             <title> 멋쟁이사자처럼 </title>
           </Head>
+          <ScrollToTop />
           <GlobalStyles />
           <Header />
           <Component {...pageProps} />
@@ -152,6 +154,7 @@ function App({ Component, pageProps }: AppProps) {
             />
             <title> 멋쟁이사자처럼 </title>
           </Head>
+          <ScrollToTop />
           <GlobalStyles />
           <SideHeader />
           <Component {...pageProps} />
