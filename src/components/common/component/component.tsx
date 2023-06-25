@@ -22,6 +22,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/src/app/store";
 import { url } from "inspector";
+import { useRouter } from "next/router";
 
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
@@ -338,6 +339,8 @@ export const Header = () => {
     };
   }, [openingScroll]);
 
+  const router = useRouter();
+
   return (
     <>
       <div
@@ -428,6 +431,8 @@ export const Header = () => {
             alt="로고"
             src={logo}
             priority
+            placeholder="blur"
+            onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
 
@@ -460,7 +465,9 @@ export const Header = () => {
           <Image
             alt="로고"
             priority
+            placeholder="blur"
             src={logo2}
+            onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
 
@@ -562,6 +569,8 @@ export const SideHeader = () => {
     };
   }, [openingScroll]);
 
+  const router = useRouter();
+
   return (
     <>
       <div
@@ -652,6 +661,8 @@ export const SideHeader = () => {
             alt="로고"
             src={logo2}
             priority
+            placeholder="blur"
+            onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
 
@@ -685,6 +696,8 @@ export const SideHeader = () => {
             alt="로고"
             src={logo}
             priority
+            placeholder="blur"
+            onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
 

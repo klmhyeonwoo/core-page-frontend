@@ -75,7 +75,6 @@ export default function Opening() {
       >
         <Image
           src={lion}
-          priority
           alt="사자 이모지"
           css={css`
             width: 8em;
