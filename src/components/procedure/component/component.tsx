@@ -53,6 +53,7 @@ const Content = () => {
           width: 25em;
           height: auto;
         `}
+        placeholder="blur"
       />
       <div
         css={css`
@@ -182,6 +183,7 @@ const DescriptionProcedure = () => {
           margin-top: 0.5em;
           margin-bottom: 0.5em;
         `}
+        placeholder="blur"
         alt="합류 여정 이미지"
       />
       <span

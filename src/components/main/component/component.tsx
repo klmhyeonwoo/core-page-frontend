@@ -111,6 +111,7 @@ export const ApplyButton = () => {
             src={space}
             priority
             alt="메인 로고"
+            placeholder="blur"
             css={css`
               margin-top: 0.3em;
               width: 2em;
