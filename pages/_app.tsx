@@ -28,7 +28,10 @@ function App({ Component, pageProps }: AppProps) {
             <meta property="og:type" content="website" />
             <meta property="og:url" content="http://knu-likelion.org/" />
             <meta property="og:title" content="멋쟁이사자처럼 강남대학교" />
-            <meta property="og:image" content="https://url.kr/mzrxb6" />
+            <meta
+              property="og:image"
+              content="https://github.com/likelionknu/Archive/blob/1751b00aff65db0336b2da3db1316f7052368921/%E1%84%8B%E1%85%A1%E1%84%90%E1%85%B3%E1%84%87%E1%85%A9%E1%84%83%E1%85%B3%20%E2%80%93%2014.png?raw=true"
+            />
             <meta
               property="og:description"
               content="멋쟁이사자처럼 강남대학교"
@@ -99,7 +102,10 @@ function App({ Component, pageProps }: AppProps) {
             <meta property="og:type" content="website" />
             <meta property="og:url" content="http://knu-likelion.org/" />
             <meta property="og:title" content="멋쟁이사자처럼 강남대학교" />
-            <meta property="og:image" content="https://url.kr/mzrxb6" />
+            <meta
+              property="og:image"
+              content="https://github.com/likelionknu/Archive/blob/1751b00aff65db0336b2da3db1316f7052368921/%E1%84%8B%E1%85%A1%E1%84%90%E1%85%B3%E1%84%87%E1%85%A9%E1%84%83%E1%85%B3%20%E2%80%93%2014.png?raw=true"
+            />
             <meta
               property="og:description"
               content="멋쟁이사자처럼 강남대학교"
