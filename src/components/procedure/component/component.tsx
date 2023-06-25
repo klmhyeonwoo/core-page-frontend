@@ -34,6 +34,15 @@ const Content = () => {
         justify-content: center;
         align-items: center;
         width: 1000px;
+
+        @media (max-width: 1100px) {
+          flex-direction: column;
+          row-gap: 4em;
+          margin-top: 30em;
+          padding-left: 1.5em;
+          padding-right: 1.5em;
+          padding-bottom: 2em;
+        }
       `}
     >
       <Image
@@ -74,6 +83,23 @@ const DescriptionTitle = () => {
           font-family: "Pretendard-Bold";
           letter-spacing: -0.03em;
           font-size: 30px;
+
+          @media (max-width: 388px) {
+            font-size: 22px;
+          }
+          @media (min-width: 388px) and (max-width: 481px) {
+            font-size: 24px;
+          }
+          @media (min-width: 481px) and (max-width: 768px) {
+            font-size: 26px;
+          }
+          @media all and (min-width: 768px) and (max-width: 1099px) {
+            font-size: 28px;
+          }
+          @media all and (min-width: 1100px) and (max-width: 2000px) {
+            font-size: 30px;
+          }
+
           // animation: ${TextfadeUp} 1.3s ease-in-out;
         `}
       >
@@ -114,6 +140,22 @@ const DescriptionProcedure = () => {
           letter-spacing: -0.03em;
           font-size: 25px;
           // animation: ${TextfadeUp} 1.3s ease-in-out;
+
+          @media (max-width: 388px) {
+            font-size: 21px;
+          }
+          @media (min-width: 388px) and (max-width: 481px) {
+            font-size: 22px;
+          }
+          @media (min-width: 481px) and (max-width: 768px) {
+            font-size: 23px;
+          }
+          @media all and (min-width: 768px) and (max-width: 1099px) {
+            font-size: 24px;
+          }
+          @media all and (min-width: 1100px) and (max-width: 2000px) {
+            font-size: 25px;
+          }
         `}
       >
         시작하기에 앞서

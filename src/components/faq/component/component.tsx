@@ -36,6 +36,8 @@ export const FAQContent = () => {
           flex-direction: column;
           row-gap: 1em;
           overflow: auto;
+          padding-left: 1em;
+          padding-right: 1em;
         `}
       >
         {titleOfQuestion.map((item, key) => {
@@ -84,6 +86,7 @@ const QuestionBox = ({ question, answer }: questionProps) => {
           transition: 0.4s all;
           cursor: pointer;
           padding-left: 1em;
+          padding-right: 1em;
           box-sizing: border-box;
 
           &:hover {
@@ -117,6 +120,8 @@ const QuestionBox = ({ question, answer }: questionProps) => {
           box-sizing: border-box;
           background-color: #e8f3ff;
           border-radius: 8px;
+          padding-right: 1em;
+          box-sizing: border-box;
         `}
       >
         <AnswerSymbol />
@@ -135,6 +140,22 @@ const QuestionSymbol = () => {
         letter-spacing: -0.03em;
         font-size: 19px;
         color: rgb(176, 184, 193);
+
+        @media (max-width: 388px) {
+          font-size: 11px;
+        }
+        @media (min-width: 388px) and (max-width: 481px) {
+          font-size: 13px;
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+          font-size: 15px;
+        }
+        @media all and (min-width: 768px) and (max-width: 1099px) {
+          font-size: 16px;
+        }
+        @media all and (min-width: 1100px) and (max-width: 2000px) {
+          font-size: 19px;
+        }
       `}
     >
       Q
@@ -151,6 +172,22 @@ const AnswerSymbol = () => {
         letter-spacing: -0.03em;
         font-size: 19px;
         color: #1b64da;
+
+        @media (max-width: 388px) {
+          font-size: 11px;
+        }
+        @media (min-width: 388px) and (max-width: 481px) {
+          font-size: 13px;
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+          font-size: 15px;
+        }
+        @media all and (min-width: 768px) and (max-width: 1099px) {
+          font-size: 16px;
+        }
+        @media all and (min-width: 1100px) and (max-width: 2000px) {
+          font-size: 19px;
+        }
       `}
     >
       A
@@ -168,6 +205,22 @@ const Title = ({ question }: questionProps) => {
         letter-spacing: -0.03em;
         font-size: 18px;
         // animation: ${TextfadeUp} 1.3s ease-in-out;
+
+        @media (max-width: 388px) {
+          font-size: 11px;
+        }
+        @media (min-width: 388px) and (max-width: 481px) {
+          font-size: 12px;
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+          font-size: 15px;
+        }
+        @media all and (min-width: 768px) and (max-width: 1099px) {
+          font-size: 16px;
+        }
+        @media all and (min-width: 1100px) and (max-width: 2000px) {
+          font-size: 18px;
+        }
       `}
     >
       {question}
@@ -185,6 +238,22 @@ const Answer = ({ answer }: questionProps) => {
         letter-spacing: -0.03em;
         font-size: 16px;
         // animation: ${TextfadeUp} 1.3s ease-in-out;
+
+        @media (max-width: 388px) {
+          font-size: 11px;
+        }
+        @media (min-width: 388px) and (max-width: 481px) {
+          font-size: 12px;
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+          font-size: 15px;
+        }
+        @media all and (min-width: 768px) and (max-width: 1099px) {
+          font-size: 16px;
+        }
+        @media all and (min-width: 1100px) and (max-width: 2000px) {
+          font-size: 16px;
+        }
       `}
     >
       {answer}

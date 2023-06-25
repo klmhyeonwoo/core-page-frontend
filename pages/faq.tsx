@@ -9,7 +9,6 @@ export default function faq() {
       <Head>
         <title> 멋쟁이사자처럼 FAQ</title>
       </Head>
-      <SideHeader />
       <FAQContent />
     </>
   );

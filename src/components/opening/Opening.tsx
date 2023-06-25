@@ -35,8 +35,8 @@ export default function Opening() {
         background-color: #f9fafb;
 
         @media (max-width: 1000px) {
-          padding-left: 1.5em;
-          padding-right: 1.5em;
+          padding-left: 3em;
+          padding-right: 3em;
           box-sizing: border-box;
         }
       `}
