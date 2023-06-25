@@ -36,8 +36,11 @@ export const FAQContent = () => {
           flex-direction: column;
           row-gap: 1em;
           overflow: auto;
-          padding-left: 1em;
-          padding-right: 1em;
+
+          @media (max-width: 1100px) {
+            padding-left: 1em;
+            padding-right: 1em;
+          }
         `}
       >
         {titleOfQuestion.map((item, key) => {
@@ -203,7 +206,7 @@ const Title = ({ question }: questionProps) => {
         color: rgb(78, 89, 104);
         font-family: "Pretendard-Regular";
         letter-spacing: -0.03em;
-        font-size: 18px;
+        font-size: 16px;
         // animation: ${TextfadeUp} 1.3s ease-in-out;
 
         @media (max-width: 388px) {
@@ -219,7 +222,7 @@ const Title = ({ question }: questionProps) => {
           font-size: 16px;
         }
         @media all and (min-width: 1100px) and (max-width: 2000px) {
-          font-size: 18px;
+          font-size: 16px;
         }
       `}
     >
