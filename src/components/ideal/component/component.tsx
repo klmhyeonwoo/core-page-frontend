@@ -28,7 +28,7 @@ export const IdealArticle = forwardRef(
             grid-template-columns: 1fr 1fr;
             row-gap: 4em;
             animation: ${TextfadeUp} 1.5s ease-in-out;
-            column-gap: 1.3em;
+            column-gap: 2em;
           `}
           ref={contentRef}
         >

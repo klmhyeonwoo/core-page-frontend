@@ -10,7 +10,6 @@ export default function procedure() {
       <Head>
         <title> 멋쟁이사자처럼 합류 여정</title>
       </Head>
-      <SideHeader />
       <ProcedureContent />
     </>
   );

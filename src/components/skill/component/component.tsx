@@ -45,17 +45,26 @@ export const SkillSection = forwardRef(
       <div
         ref={ref}
         css={css`
-          width: 100%;
+          width: auto;
           display: flex;
           flex-direction: column;
           row-gap: 5em;
+
+          // @media (max-width: 1100px) {
+          //   padding-left: 3em;
+          //   padding-right: 3em;
+          //   box-sizing: border-box;
+          // }
         `}
       >
         {skill === "백엔드" && (
           <div
             ref={skillRef}
             css={css`
+              width: auto;
               display: none;
+              // padding: 10em;
+              // box-sizing: border-box;
               animation: ${TextfadeUp} 1.5s ease-in-out;
             `}
           >
@@ -239,6 +248,7 @@ const BackendSkill = () => {
   return (
     <article
       css={css`
+        width: 100%;
         display: flex;
         overflow: hidden;
       `}
@@ -318,10 +328,20 @@ const SkillImage = ({ src, alt }: imgProps) => {
     <Image
       src={src}
       css={css`
-        width: 6vw;
+        width: 6em;
         height: auto;
-        margin-left: 1em;
-        margin-right: 1em;
+        margin-left: 0em;
+        margin-right: 1.3em;
+
+        @media (max-width: 481px) {
+          font-size: 9px;
+        }
+        @media (min-width: 481px) and (max-width: 767px) {
+          font-size: 13px;
+        }
+        @media (min-width: 768px) and (max-width: 1100px) {
+          font-size: 16px;
+        }
       `}
       alt={`${alt}`}
     />

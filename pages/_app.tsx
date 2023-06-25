@@ -38,6 +38,41 @@ function App({ Component, pageProps }: AppProps) {
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta name="description" content="멋쟁이사자처럼 강남대학교" />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
             <title> 멋쟁이사자처럼 </title>
           </Head>
           <GlobalStyles />
@@ -74,6 +109,41 @@ function App({ Component, pageProps }: AppProps) {
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta name="description" content="멋쟁이사자처럼 강남대학교" />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff"
+              as="font"
+              type="font/woff"
+              crossOrigin=""
+            />
             <title> 멋쟁이사자처럼 </title>
           </Head>
           <GlobalStyles />

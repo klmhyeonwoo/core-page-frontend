@@ -265,7 +265,11 @@ export const MainTitle = ({ text }: textProps) => {
           z-index: 1;
           line-height: 1.3em;
 
-          @media (max-width: 481px) {
+          @media (max-width: 400px) {
+            font-size: 1.6em;
+          }
+
+          @media (min-width: 400px) and (max-width: 481px) {
             font-size: 2em;
           }
           @media (min-width: 481px) and (max-width: 767px) {

@@ -169,6 +169,7 @@ export const ItemOfCategory = forwardRef(
             box-sizing: border-box;
             font-size: 1.68em;
             height: 16.2em;
+            // height: 100%;
             border-radius: 2.3rem;
             box-shadow: 5px 5px 15px 10px rgb(0, 0, 0, 0.16);
             text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
@@ -223,6 +224,16 @@ export const ItemOfCategory = forwardRef(
               text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.2);
               margin-right: auto;
               line-height: 1.4em;
+
+              @media (max-width: 481px) {
+                font-size: 15px;
+              }
+              @media (min-width: 481px) and (max-width: 767px) {
+                font-size: 16px;
+              }
+              @media (min-width: 768px) and (max-width: 1099px) {
+                font-size: 16px;
+              }
             `}
           >
             {alt}
@@ -252,6 +263,7 @@ export function Category() {
         row-gap: 4em;
         column-gap: 4em;
         margin-top: 4em;
+
         @media (max-width: 1000px) {
           display: flex;
           flex-direction: column;
@@ -338,17 +350,29 @@ export const Header = () => {
           align-items: center;
           padding-top: 0.5em;
           padding-bottom: 0.5em;
+          column-gap: 30em;
+          font-size: 18px;
 
-          @media (max-width: 1099px) {
-            display: none;
+          @media (max-width: 388px) {
+            font-size: 10px;
+            column-gap: 1em;
+          }
+          @media (min-width: 388px) and (max-width: 481px) {
+            font-size: 12px;
+            column-gap: 1em;
+          }
+          @media (min-width: 481px) and (max-width: 768px) {
+            font-size: 13px;
+            column-gap: 2.5em;
           }
           @media all and (min-width: 768px) and (max-width: 1099px) {
-            font-size: 18px;
+            font-size: 15px;
+            column-gap: 17.5em;
           }
           @media all and (min-width: 1100px) and (max-width: 2000px) {
             font-size: 18px;
           }
-          column-gap: 30em;
+
           background-color: none;
 
           a {
@@ -404,8 +428,26 @@ export const Header = () => {
             alt="로고"
             src={logo}
             css={css`
+              font-size: 18px;
+
+              @media (max-width: 388px) {
+                font-size: 11px;
+              }
+              @media (min-width: 388px) and (max-width: 481px) {
+                font-size: 13px;
+              }
+              @media (min-width: 481px) and (max-width: 768px) {
+                font-size: 15px;
+              }
+              @media all and (min-width: 768px) and (max-width: 1099px) {
+                font-size: 16px;
+              }
+              @media all and (min-width: 1100px) and (max-width: 2000px) {
+                font-size: 18px;
+              }
+
               height: auto;
-              width: 155px;
+              width: 8.61em;
               transition: 0.4s all;
               &:hover {
                 opacity: 70%;
@@ -418,8 +460,26 @@ export const Header = () => {
             alt="로고"
             src={logo2}
             css={css`
+              font-size: 18px;
+
+              @media (max-width: 388px) {
+                font-size: 11px;
+              }
+              @media (min-width: 388px) and (max-width: 481px) {
+                font-size: 13px;
+              }
+              @media (min-width: 481px) and (max-width: 768px) {
+                font-size: 15px;
+              }
+              @media all and (min-width: 768px) and (max-width: 1099px) {
+                font-size: 16px;
+              }
+              @media all and (min-width: 1100px) and (max-width: 2000px) {
+                font-size: 18px;
+              }
+
               height: auto;
-              width: 155px;
+              width: 8.61em;
               transition: 0.4s all;
               &:hover {
                 opacity: 70%;
@@ -512,17 +572,29 @@ export const SideHeader = () => {
           align-items: center;
           padding-top: 0.5em;
           padding-bottom: 0.5em;
+          column-gap: 30em;
+          font-size: 18px;
 
-          @media (max-width: 1099px) {
-            display: none;
+          @media (max-width: 388px) {
+            font-size: 10px;
+            column-gap: 1em;
+          }
+          @media (min-width: 388px) and (max-width: 481px) {
+            font-size: 12px;
+            column-gap: 1em;
+          }
+          @media (min-width: 481px) and (max-width: 768px) {
+            font-size: 13px;
+            column-gap: 2.5em;
           }
           @media all and (min-width: 768px) and (max-width: 1099px) {
-            font-size: 18px;
+            font-size: 15px;
+            column-gap: 17.5em;
           }
           @media all and (min-width: 1100px) and (max-width: 2000px) {
             font-size: 18px;
           }
-          column-gap: 30em;
+
           background-color: none;
 
           a {
@@ -532,7 +604,7 @@ export const SideHeader = () => {
             @media all and (min-width: 1100px) and (max-width: 2000px) {
               font-size: 14.8px;
             }
-            color: white;
+            color: #4e5968;
             font-family: "Pretendard-Regular";
             letter-spacing: -0.03em;
           }
@@ -548,6 +620,7 @@ export const SideHeader = () => {
             border-width: 1px;
             background-color: white;
             transition: 0.5s all;
+            color: #4e5968;
 
             a {
               color: #4e5968;
@@ -565,25 +638,77 @@ export const SideHeader = () => {
             // border-width: 1px;
             background-color: rgb(47, 53, 62, 0.7);
             transition: 0.5s all;
-          `}
 
-          a {
-            color: #4e5968;
-          }
-        `}
-      >
-        <Image
-          alt="로고"
-          src={logo}
-          css={css`
-            height: auto;
-            width: 155px;
-            transition: 0.4s all;
-            &:hover {
-              opacity: 70%;
+            a {
+              color: white;
             }
           `}
-        />
+        `}
+      >
+        {scrollState ? (
+          <Image
+            alt="로고"
+            src={logo2}
+            css={css`
+              font-size: 18px;
+
+              @media (max-width: 388px) {
+                font-size: 11px;
+              }
+              @media (min-width: 388px) and (max-width: 481px) {
+                font-size: 13px;
+              }
+              @media (min-width: 481px) and (max-width: 768px) {
+                font-size: 15px;
+              }
+              @media all and (min-width: 768px) and (max-width: 1099px) {
+                font-size: 16px;
+              }
+              @media all and (min-width: 1100px) and (max-width: 2000px) {
+                font-size: 18px;
+              }
+
+              height: auto;
+              width: 8.61em;
+              transition: 0.4s all;
+              &:hover {
+                opacity: 70%;
+              }
+              text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            `}
+          />
+        ) : (
+          <Image
+            alt="로고"
+            src={logo}
+            css={css`
+              font-size: 18px;
+
+              @media (max-width: 388px) {
+                font-size: 11px;
+              }
+              @media (min-width: 388px) and (max-width: 481px) {
+                font-size: 13px;
+              }
+              @media (min-width: 481px) and (max-width: 768px) {
+                font-size: 15px;
+              }
+              @media all and (min-width: 768px) and (max-width: 1099px) {
+                font-size: 16px;
+              }
+              @media all and (min-width: 1100px) and (max-width: 2000px) {
+                font-size: 18px;
+              }
+
+              height: auto;
+              width: 8.61em;
+              transition: 0.4s all;
+              &:hover {
+                opacity: 70%;
+              }
+            `}
+          />
+        )}
 
         <nav
           css={css`
@@ -599,9 +724,22 @@ export const SideHeader = () => {
               border-radius: 0.5em;
               transition: 0.5s all;
             }
-            a:hover {
-              background-color: rgba(2, 32, 71, 0.05);
-            }
+
+            ${openingState
+              ? css`
+                  a:hover {
+                    background-color: rgba(2, 32, 71, 0.05);
+                  }
+                `
+              : css`
+                  a {
+                    // text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+                  }
+
+                  a:hover {
+                    background-color: rgba(217, 217, 255, 0.11);
+                  }
+                `}
           `}
         >
           <Link href="/" tabIndex={-1}>
@@ -645,7 +783,7 @@ export const Footer = () => {
           // @media all and (min-width: 1100px) and (max-width: 2000px) {
           //   font-size: 16px;
           // }
-          width: 1000px;
+          width: 62.5rem;
           height: 100%;
           font-family: "Pretendard-Regular";
           letter-spacing: -0.03em;
@@ -656,6 +794,12 @@ export const Footer = () => {
           flex-direction: column;
           row-gap: 0.6em;
           font-size: 14px;
+
+          @media (max-width: 1100px) {
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            width: 100%;
+          }
         `}
       >
         <span

@@ -21,15 +21,21 @@ export default function Skill() {
         justify-content: center;
         padding-top: 10em;
         padding-bottom: 10em;
+
+        @media (max-width: 1100px) {
+          padding: 3em;
+          box-sizing: border-box;
+        }
       `}
     >
       <article
         css={css`
-          max-width: 62.5em;
-          width: auto;
+          width: 62.5em;
 
           @media (max-width: 1100px) {
-            padding: 3em;
+            padding-left: 3em;
+            padding-right: 3em;
+            width: 100%;
           }
         `}
       >
