@@ -432,6 +432,7 @@ export const Header = () => {
             src={logo}
             priority
             placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
@@ -466,6 +467,7 @@ export const Header = () => {
             alt="로고"
             priority
             placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             src={logo2}
             onClick={() => router.push("/")}
             css={css`
@@ -662,6 +664,7 @@ export const SideHeader = () => {
             src={logo2}
             priority
             placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
@@ -695,8 +698,9 @@ export const SideHeader = () => {
           <Image
             alt="로고"
             src={logo}
-            priority
             placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
+            priority
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
