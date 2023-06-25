@@ -327,6 +327,7 @@ const SkillImage = ({ src, alt }: imgProps) => {
   return (
     <Image
       src={src}
+      priority
       css={css`
         width: 6em;
         height: auto;

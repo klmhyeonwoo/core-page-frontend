@@ -49,6 +49,7 @@ export const BrandingImage = forwardRef(
       >
         <Image
           src={src}
+          priority
           css={css`
             display: none;
             width: auto;

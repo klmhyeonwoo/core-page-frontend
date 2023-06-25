@@ -427,6 +427,7 @@ export const Header = () => {
           <Image
             alt="로고"
             src={logo}
+            priority
             css={css`
               font-size: 18px;
 
@@ -458,6 +459,7 @@ export const Header = () => {
         ) : (
           <Image
             alt="로고"
+            priority
             src={logo2}
             css={css`
               font-size: 18px;
@@ -649,6 +651,7 @@ export const SideHeader = () => {
           <Image
             alt="로고"
             src={logo2}
+            priority
             css={css`
               font-size: 18px;
 
@@ -681,6 +684,7 @@ export const SideHeader = () => {
           <Image
             alt="로고"
             src={logo}
+            priority
             css={css`
               font-size: 18px;
 

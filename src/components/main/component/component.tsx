@@ -109,6 +109,7 @@ export const ApplyButton = () => {
         >
           <Image
             src={space}
+            priority
             alt="메인 로고"
             css={css`
               margin-top: 0.3em;

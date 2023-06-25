@@ -47,6 +47,7 @@ const Content = () => {
     >
       <Image
         src={welcome}
+        priority
         alt="합류 여정 기본 이미지"
         css={css`
           width: 25em;
@@ -174,6 +175,7 @@ const DescriptionProcedure = () => {
       </span>
       <Image
         src={procedure}
+        priority
         css={css`
           width: 100%;
           height: auto;
