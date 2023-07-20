@@ -8,15 +8,17 @@ import {
 } from "@/@types/type";
 import { TextfadeUp } from "@/styles/effect";
 import { css, keyframes } from "@emotion/react";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 export const IdealArticle = forwardRef(
   ({ scrollState }: refProps, ref: any) => {
     const contentRef = useRef<HTMLDivElement>(null);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       if (scrollState && contentRef.current) {
-        contentRef.current.style.display = "grid";
+        contentRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
 
@@ -24,10 +26,14 @@ export const IdealArticle = forwardRef(
       <div ref={ref}>
         <article
           css={css`
-            display: none;
+            visibility: hidden;
+            display: grid;
             grid-template-columns: 1fr 1fr;
             row-gap: 4em;
-            animation: ${TextfadeUp} 1.5s ease-in-out;
+            ${checked &&
+            css`
+              animation: ${TextfadeUp} 1.5s ease-in-out;
+            `}
             column-gap: 2em;
           `}
           ref={contentRef}

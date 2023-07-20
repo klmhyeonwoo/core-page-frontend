@@ -27,10 +27,12 @@ import { useRouter } from "next/router";
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
     const blueRef = useRef<HTMLSpanElement>(null);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       if (scrollState && blueRef.current) {
-        blueRef.current.style.display = "block";
+        blueRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
 
@@ -38,12 +40,15 @@ export const TitleOfBlue = forwardRef(
       <div ref={ref}>
         <span
           css={css`
-            display: none;
+            display: block;
             color: #4f85e8;
             font-family: "Pretendard-Bold";
             letter-spacing: -0.03em;
             font-size: 1.43em;
-            animation: ${TextfadeUp} 1s ease-in-out;
+            ${checked &&
+            css`
+              animation: ${TextfadeUp} 1s ease-in-out;
+            `}
           `}
           ref={blueRef}
         >
@@ -62,10 +67,12 @@ export const TitleOfBlack = forwardRef(
     const topText = text.split("\n")[0];
     const bottomText = text.split("\n")[1];
     const blackRef = useRef<HTMLSpanElement>(null);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       if (scrollState && blackRef.current) {
-        blackRef.current.style.display = "block";
+        blackRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
 
@@ -73,7 +80,8 @@ export const TitleOfBlack = forwardRef(
       <div ref={ref}>
         <span
           css={css`
-            display: none;
+            visibility: hidden;
+            display: block;
             color: #333d4b;
             font-family: "Pretendard-ExtraBold";
             letter-spacing: -0.03em;
@@ -81,7 +89,10 @@ export const TitleOfBlack = forwardRef(
             margin-top: 0.5em;
             line-height: 1.3em;
             margin-bottom: 1.6em;
-            animation: ${TextfadeUp} 1.3s ease-in-out;
+            ${checked &&
+            css`
+              animation: ${TextfadeUp} 1.3s ease-in-out;
+            `}
 
             @media (max-width: 481px) {
               font-size: 22px;
@@ -108,10 +119,12 @@ TitleOfBlack.displayName = "TitleOfBlack";
 export const Description = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
     const descriptionRef = useRef<HTMLSpanElement>(null);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       if (scrollState && descriptionRef.current) {
-        descriptionRef.current.style.display = "block";
+        descriptionRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
 
@@ -119,13 +132,17 @@ export const Description = forwardRef(
       <div ref={ref}>
         <span
           css={css`
-            display: none;
+            visibility: hidden;
+            display: block;
             color: #333d4b;
             font-family: "Pretendard-Medium";
             letter-spacing: -0.03em;
             font-size: 1.1em;
             line-height: 1.5em;
-            animation: ${TextfadeUp} 1.5s ease-in-out;
+            ${checked &&
+            css`
+              animation: ${TextfadeUp} 1.5s ease-in-out;
+            `}
           `}
           ref={descriptionRef}
         >
@@ -155,10 +172,12 @@ export const ItemOfCategory = forwardRef(
     const topText = text.split("\n")[0];
     const bottomText = text.split("\n")[1];
     const categoryRef = useRef<HTMLDivElement>(null);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       if (scrollState && categoryRef.current) {
-        categoryRef.current.style.display = "flex";
+        categoryRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
 
@@ -166,7 +185,8 @@ export const ItemOfCategory = forwardRef(
       <div ref={ref}>
         <div
           css={css`
-            display: none;
+            visibility: hidden;
+            display: flex;
             box-sizing: border-box;
             font-size: 1.68em;
             height: 16.2em;
@@ -185,7 +205,10 @@ export const ItemOfCategory = forwardRef(
 
             flex-direction: column;
             align-items: center;
-            animation: ${fadeUp} 1.7s ease-in-out;
+            ${checked &&
+            css`
+              animation: ${fadeUp} 1.7s ease-in-out;
+            `}
             transition: 0.4s all;
 
             &:hover {
@@ -311,7 +334,7 @@ export const Header = () => {
     (state: RootState) => state.scroll.openingScroll
   );
 
-  console.log(openingScroll);
+  // console.log(openingScroll);
 
   const handleScroll = () => {
     if (window.scrollY || document.documentElement.scrollTop > 0) {
@@ -322,7 +345,7 @@ export const Header = () => {
     }
 
     if (window.scrollY > openingScroll) {
-      console.log(window.scrollY, openingScroll);
+      // console.log(window.scrollY, openingScroll);
       setOpeningState(true);
       setScrollState(false);
     } else {
@@ -340,6 +363,13 @@ export const Header = () => {
   }, [openingScroll]);
 
   const router = useRouter();
+  const indexRef = useRef<HTMLDivElement>(null);
+
+  setTimeout(() => {
+    if (indexRef.current) {
+      indexRef.current.style.display = "flex";
+    }
+  }, 1000);
 
   return (
     <>
@@ -348,13 +378,14 @@ export const Header = () => {
           position: fixed;
           z-index: 999;
           width: 100%;
-          display: flex;
+          display: none;
           justify-content: center;
           align-items: center;
           padding-top: 0.5em;
           padding-bottom: 0.5em;
           column-gap: 30em;
           font-size: 18px;
+          transition: 0.5s all;
 
           @media (max-width: 388px) {
             font-size: 10px;
@@ -376,7 +407,7 @@ export const Header = () => {
             font-size: 18px;
           }
 
-          background-color: none;
+          background-color: transparent;
 
           a {
             @media all and (min-width: 768px) and (max-width: 1099px) {
@@ -425,6 +456,7 @@ export const Header = () => {
             }
           `}
         `}
+        ref={indexRef}
       >
         {openingState ? (
           <Image

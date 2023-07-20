@@ -3,15 +3,17 @@ import { catergoryProps, imgProps, textProps } from "@/@types/type";
 import { css, keyframes } from "@emotion/react";
 import { brandImgProps } from "@/@types/type";
 import Image from "next/image";
-import React, { forwardRef, useEffect, useRef } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { fadeUp } from "@/styles/effect";
 
 export const BrandingImage = forwardRef(
   ({ src, alt, scrollState }: brandImgProps, ref: any) => {
     const imageRef = useRef<HTMLImageElement>(null);
+    const [checked, setChecked] = useState(false);
     useEffect(() => {
       if (scrollState && imageRef.current) {
-        imageRef.current.style.display = "flex";
+        imageRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
     return (
@@ -51,7 +53,8 @@ export const BrandingImage = forwardRef(
           src={src}
           priority
           css={css`
-            display: none;
+            visibility: hidden;
+            display: flex;
             width: auto;
             height: 26em;
 
@@ -65,7 +68,10 @@ export const BrandingImage = forwardRef(
             css`
               height: 24em;
             `}
-            animation: ${fadeUp} 1.4s ease-in-out;
+            ${checked &&
+            css`
+              animation: ${fadeUp} 1.4s ease-in-out;
+            `}
           `}
           alt={alt}
           ref={imageRef}

@@ -4,6 +4,7 @@ html {
   font-display: block;
   width: 100%;
   overflow-x: hidden;
+  margin: 0;
 }
 
 /**
