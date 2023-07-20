@@ -25,13 +25,13 @@ export default function Ending() {
   const handleScroll = () => {
     if (backgroundRef.current) {
       scaledScroll = Math.abs(window.scrollY - scroll);
-      console.log("background:", backgroundRef.current.offsetWidth);
-      console.log("현재 스크롤:", scaledScroll);
-      console.log(window.innerWidth);
+      // console.log("background:", backgroundRef.current.offsetWidth);
+      // console.log("현재 스크롤:", scaledScroll);
+      // console.log(window.innerWidth);
       if (backgroundRef.current.offsetWidth <= window.innerWidth) {
         backgroundRef.current.style.width = `${1000 + scaledScroll}px`;
       }
-      console.log(backgroundRef.current.style);
+      // console.log(backgroundRef.current.style);
     }
   };
 
