@@ -71,7 +71,6 @@ export default function Opening() {
             display: block;
           }
         `}
-        ref={scrollRef}
       >
         <Image
           src={lion}

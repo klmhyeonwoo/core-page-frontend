@@ -53,7 +53,7 @@ export const MainArticle = () => {
     if (TitleRef.current) {
       TitleRef.current.style.display = "flex";
     }
-  }, 2000);
+  }, 1000);
   return (
     <div
       css={css`
@@ -87,7 +87,8 @@ export const ApplyButton = () => {
         <div
           css={css`
             margin-top: 3em;
-            width: 17em;
+            width: auto;
+            min-width: 17em;
             height: 3.5em;
             border: none;
             border-radius: 0.7em;
@@ -100,6 +101,8 @@ export const ApplyButton = () => {
             padding-right: 0.1em;
             transition: 0.5s all;
             cursor: pointer;
+            padding-left: 1.2em;
+            padding-right: 1.2em;
 
             &:hover {
               background-color: rgb(78, 89, 104);
@@ -125,7 +128,7 @@ export const ApplyButton = () => {
               color: white;
             `}
           >
-            팀에 합류하고 싶으신가요?
+            멋쟁이사자처럼 팀에 합류하고 싶으신가요?
           </span>
         </div>
       </Link>
@@ -150,7 +153,7 @@ export const Icon = ({ src, alt }: imgProps) => {
 
   setTimeout(() => {
     if (imageRef.current) {
-      imageRef.current.style.display = "block";
+      imageRef.current.style.visibility = "visible";
     }
   }, 1500);
 
@@ -164,7 +167,8 @@ export const Icon = ({ src, alt }: imgProps) => {
     <>
       <Image
         css={css`
-          display: none;
+          visibility: hidden;
+          display: block;
           position: absolute !important;
           animation: ${fadeIn} 0.5s ease-in-out;
           transition: 1s all;
@@ -234,8 +238,8 @@ export const BackGroundImg = ({ src }: imgProps) => {
         alt="백그라운드 이미지"
         css={css`
           position: absolute;
-          width: 100% !important;
-          height: 100% !important;
+          width: 100vw !important;
+          height: 100vh !important;
           animation: ${fadeIn} 0.7s ease-in-out;
           object-fit: cover;
         `}

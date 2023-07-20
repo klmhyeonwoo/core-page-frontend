@@ -28,16 +28,18 @@ import sass from "../../../../images/skill/sass.png";
 
 import xd from "../../../../images/skill/xd.png";
 import figma from "../../../../images/skill/figma.png";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { TextfadeUp, cloneflow, flow } from "@/styles/effect";
 
 export const SkillSection = forwardRef(
   ({ skill, scrollState }: skillProps, ref: any) => {
     const skillRef = useRef<HTMLDivElement>(null);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       if (scrollState && skillRef.current) {
-        skillRef.current.style.display = "block";
+        skillRef.current.style.visibility = "visible";
+        setChecked(true);
       }
     }, [scrollState]);
 
@@ -62,10 +64,14 @@ export const SkillSection = forwardRef(
             ref={skillRef}
             css={css`
               width: auto;
-              display: none;
+              display: block;
+              visibility: hidden;
               // padding: 10em;
               // box-sizing: border-box;
-              animation: ${TextfadeUp} 1.5s ease-in-out;
+              ${checked &&
+              css`
+                animation: ${TextfadeUp} 1.5s ease-in-out;
+              `}
             `}
           >
             <SkillTitle text="백엔드" />
@@ -76,8 +82,12 @@ export const SkillSection = forwardRef(
           <div
             ref={skillRef}
             css={css`
-              display: none;
-              animation: ${TextfadeUp} 1.5s ease-in-out;
+              display: block;
+              visibility: hidden;
+              ${checked &&
+              css`
+                animation: ${TextfadeUp} 1.5s ease-in-out;
+              `}
             `}
           >
             {" "}
@@ -89,8 +99,12 @@ export const SkillSection = forwardRef(
           <div
             ref={skillRef}
             css={css`
-              display: none;
-              animation: ${TextfadeUp} 1.5s ease-in-out;
+              display: block;
+              visibility: hidden;
+              ${checked &&
+              css`
+                animation: ${TextfadeUp} 1.5s ease-in-out;
+              `}
             `}
           >
             {" "}
@@ -238,12 +252,12 @@ const FrontendSkill = () => {
 const BackendSkill = () => {
   const backendRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (backendRef.current) {
-      console.log("!!!!", backendRef);
-      console.log("??", backendRef.current?.offsetWidth);
-    }
-  });
+  // useEffect(() => {
+  //   if (backendRef.current) {
+  //     console.log("!!!!", backendRef);
+  //     console.log("??", backendRef.current?.offsetWidth);
+  //   }
+  // });
 
   return (
     <article
