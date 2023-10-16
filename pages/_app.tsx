@@ -21,10 +21,7 @@ function App({ Component, pageProps }: AppProps) {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"
-            />
+            <meta name="viewport" content="width=device-width" />
             <meta name="theme-color" content="#000000" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="http://knu-likelion.org/" />
@@ -66,10 +63,7 @@ function App({ Component, pageProps }: AppProps) {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"
-            />
+            <meta name="viewport" />
             <meta name="theme-color" content="#000000" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="http://knu-likelion.org/" />

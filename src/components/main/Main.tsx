@@ -10,7 +10,7 @@ import {
   MainArticle,
   MainTitle,
 } from "./component/component";
-import backgroundImg2 from "../../../images/background_3.png";
+import backgroundImg2 from "../../../images/background_3.webp";
 import backgroundImg from "../../../images/background.png";
 import scroll from "../../../images/scroll.png";
 import { useSelector } from "react-redux";
