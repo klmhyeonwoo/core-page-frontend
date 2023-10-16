@@ -46,6 +46,8 @@ const Content = () => {
       `}
     >
       <Image
+        width={0}
+        height={0}
         src={welcome}
         priority
         alt="합류 여정 기본 이미지"

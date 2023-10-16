@@ -340,6 +340,8 @@ const BackendSkill = () => {
 const SkillImage = ({ src, alt }: imgProps) => {
   return (
     <Image
+      width={0}
+      height={0}
       src={src}
       priority
       placeholder="blur"

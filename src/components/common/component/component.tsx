@@ -11,10 +11,10 @@ import logo2 from "../../../../images/logo2.png";
 import instagram from "../../../../images/footer/instagram.svg";
 import facebook from "../../../../images/footer/facebook.svg";
 import channelTalk from "../../../../images/footer/channelTalk.svg";
-import category1 from "../../../../images/category/category1.png";
-import category2 from "../../../../images/category/category2.png";
-import category3 from "../../../../images/category/category3.png";
-import category4 from "../../../../images/category/category4.png";
+import category1 from "../../../../images/category/category1.webp";
+import category2 from "../../../../images/category/category2.webp";
+import category3 from "../../../../images/category/category3.webp";
+import category4 from "../../../../images/category/category4.webp";
 import { useInView } from "react-intersection-observer";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { TextfadeUp, fadeIn, fadeUp } from "@/styles/effect";
@@ -460,6 +460,8 @@ export const Header = () => {
       >
         {openingState ? (
           <Image
+            width={0}
+            height={0}
             alt="로고"
             src={logo}
             priority
@@ -497,6 +499,8 @@ export const Header = () => {
           />
         ) : (
           <Image
+            width={0}
+            height={0}
             alt="로고"
             priority
             placeholder="blur"
@@ -695,6 +699,8 @@ export const SideHeader = () => {
       >
         {scrollState ? (
           <Image
+            width={0}
+            height={0}
             alt="로고"
             src={logo2}
             priority
@@ -732,6 +738,8 @@ export const SideHeader = () => {
           />
         ) : (
           <Image
+            width={0}
+            height={0}
             alt="로고"
             src={logo}
             placeholder="blur"
@@ -920,6 +928,8 @@ export const FooterIcon = ({ src, alt }: imgProps) => {
   return (
     <Link href={select} target="_blank">
       <Image
+        width={0}
+        height={0}
         src={src}
         alt={`${alt}`}
         css={css`

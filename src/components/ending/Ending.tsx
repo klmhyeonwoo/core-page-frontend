@@ -10,7 +10,7 @@ import {
 import { useInView } from "react-intersection-observer";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import ending from "../../../images/ending/ending.png";
+import ending from "../../../images/ending/ending.webp";
 
 export default function Ending() {
   // const [blueTitleRef, blueTitleState] = useInView();

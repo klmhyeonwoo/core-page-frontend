@@ -111,6 +111,8 @@ export const ApplyButton = () => {
           `}
         >
           <Image
+            width={0}
+            height={0}
             src={space}
             priority
             alt="메인 로고"
@@ -165,6 +167,8 @@ export const Icon = ({ src, alt }: imgProps) => {
   return (
     <>
       <Image
+        width={0}
+        height={0}
         css={css`
           visibility: hidden;
           display: block;
@@ -233,6 +237,8 @@ export const BackGroundImg = ({ src }: imgProps) => {
       `}
     >
       <Image
+        width={0}
+        height={0}
         src={src}
         alt="백그라운드 이미지"
         css={css`

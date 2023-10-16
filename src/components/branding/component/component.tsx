@@ -52,6 +52,8 @@ export const BrandingImage = forwardRef(
         <Image
           src={src}
           priority
+          width={0}
+          height={0}
           css={css`
             visibility: hidden;
             display: flex;
