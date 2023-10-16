@@ -8,6 +8,7 @@ import lion from "../../../images/lion.gif";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { setOpeningScroll } from "@/src/features/scrollSlice";
+import profileIcon from "../../../images/profileIcon.png";
 
 export default function Opening() {
   const openingRef = useRef<HTMLDivElement>(null);
@@ -54,7 +55,7 @@ export default function Opening() {
           font-family: "Pretendard-Bold";
           letter-spacing: -0.03em;
           font-size: 1.56em;
-          color: #333d4b;
+          color: #404040;
 
           @media (max-width: 481px) {
             font-size: 1.2em;
@@ -69,19 +70,26 @@ export default function Opening() {
           span {
             font-size: 1em;
             display: block;
+            text-align: center;
+            line-height: 1.5em;
           }
         `}
       >
         <Image
-          src={lion}
+          src={profileIcon}
           alt="사자 이모지"
           css={css`
-            width: 8em;
+            width: 12em;
             height: auto;
           `}
         />
-        <span>다양한 네트워킹을 통해 서비스 플로우를 경험해보세요</span>
-        <span>아이디어를 실현하고 혁신적인 서비스를 만들 수 있는 곳</span>
+        <span>
+          다양한 네트워킹을 통해 우리가 만들어가는 서비스의 플로우를
+          경험해보세요
+        </span>
+        <span>
+          아이디어를 실현하고 혁신적인 나만의 서비스를 만들 수 있는 팀
+        </span>
         <span>멋쟁이사자처럼과 함께라면 새로운 경험을 할 수 있을거에요</span>
       </article>
     </section>

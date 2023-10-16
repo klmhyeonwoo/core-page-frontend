@@ -85,7 +85,7 @@ const QuestionBox = ({ question, answer }: questionProps) => {
           justify-content: left;
           align-items: center;
           width: 100%;
-          height: 60px;
+          height: 80px;
           transition: 0.4s all;
           cursor: pointer;
           padding-left: 1em;
@@ -116,7 +116,7 @@ const QuestionBox = ({ question, answer }: questionProps) => {
           justify-content: left;
           align-items: center;
           width: 100%;
-          height: 60px;
+          height: 80px;
           transition: 0.4s all;
           cursor: pointer;
           padding-left: 1em;

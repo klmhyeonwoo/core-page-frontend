@@ -430,7 +430,7 @@ export const Header = () => {
             border-bottom: 1;
             border-color: #e6e8ea;
             border-width: 1px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.88);
             transition: 0.5s all;
             color: #4e5968;
 
@@ -468,6 +468,7 @@ export const Header = () => {
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
+              cursor: pointer;
 
               @media (max-width: 388px) {
                 font-size: 11px;
@@ -504,6 +505,7 @@ export const Header = () => {
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
+              cursor: pointer;
 
               @media (max-width: 388px) {
                 font-size: 11px;
@@ -619,6 +621,7 @@ export const SideHeader = () => {
           padding-bottom: 0.5em;
           column-gap: 30em;
           font-size: 18px;
+          cursor: pointer;
 
           @media (max-width: 388px) {
             font-size: 10px;
@@ -663,7 +666,7 @@ export const SideHeader = () => {
             border-bottom: 1;
             border-color: #e6e8ea;
             border-width: 1px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.88);
             transition: 0.5s all;
             color: #4e5968;
 
@@ -700,6 +703,7 @@ export const SideHeader = () => {
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
+              cursor: pointer;
 
               @media (max-width: 388px) {
                 font-size: 11px;

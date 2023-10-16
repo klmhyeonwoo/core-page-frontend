@@ -83,7 +83,7 @@ export const MainArticle = () => {
 export const ApplyButton = () => {
   return (
     <>
-      <Link href={"https://knu-likelion.org"} target="_blank">
+      <Link href={"http://likelion-apply.org/"} target="_blank">
         <div
           css={css`
             margin-top: 3em;
@@ -116,8 +116,7 @@ export const ApplyButton = () => {
             alt="메인 로고"
             placeholder="blur"
             css={css`
-              margin-top: 0.3em;
-              width: 2em;
+              width: 2.2em;
               height: auto;
             `}
           />
@@ -128,7 +127,7 @@ export const ApplyButton = () => {
               color: white;
             `}
           >
-            멋쟁이사자처럼 팀에 합류하고 싶으신가요?
+            팀 멋쟁이사자처럼 합류하기
           </span>
         </div>
       </Link>
