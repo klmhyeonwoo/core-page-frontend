@@ -39,6 +39,8 @@ html {
 
 body {
   margin: 0;
+  font-family: "Pretendard Variable";
+  overflow-x: hidden;
 }
 
 a {
