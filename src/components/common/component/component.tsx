@@ -83,7 +83,7 @@ export const TitleOfBlack = forwardRef(
             visibility: hidden;
             display: block;
             color: #333d4b;
-            font-family: "Pretendard-ExtraBold";
+            font-family: "Pretendard-Bold";
             letter-spacing: -0.03em;
             font-size: 35px;
             margin-top: 0.5em;
@@ -135,7 +135,7 @@ export const Description = forwardRef(
             visibility: hidden;
             display: block;
             color: #333d4b;
-            font-family: "Pretendard-Medium";
+            font-family: "Pretendard-Regular";
             letter-spacing: -0.03em;
             font-size: 1.1em;
             line-height: 1.5em;
@@ -152,6 +152,10 @@ export const Description = forwardRef(
                 <span
                   css={css`
                     display: block;
+
+                    @media (max-width: 481px) {
+                      display: tranparent;
+                    }
                   `}
                 >
                   {item}
