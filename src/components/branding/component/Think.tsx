@@ -56,7 +56,7 @@ export default function Think() {
           css={css`
             display: flex;
             flex-direction: column;
-            row-gap: 2.6em;
+            row-gap: 1em;
           `}
         >
           <Description

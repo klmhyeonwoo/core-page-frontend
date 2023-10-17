@@ -91,7 +91,7 @@ export const ApplyButton = () => {
             min-width: 17em;
             height: 3.5em;
             border: none;
-            border-radius: 0.7em;
+            border-radius: 0.5em;
             background-color: rgba(0, 12, 30, 0.8);
             display: flex;
             justify-content: center;
@@ -266,7 +266,7 @@ export const MainTitle = ({ text }: textProps) => {
     <>
       <div
         css={css`
-          width: 20em;
+          width: 15em;
           text-align: center;
           font-family: "Pretendard-ExtraBold";
           font-size: 3.43em;

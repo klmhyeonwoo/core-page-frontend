@@ -52,7 +52,7 @@ export default function Opening() {
           justify-contents: center;
           row-gap: 0.8em;
           color: black;
-          font-family: "Pretendard-Bold";
+          font-family: "Pretendard-Medium";
           letter-spacing: -0.03em;
           font-size: 1.56em;
           color: #404040;

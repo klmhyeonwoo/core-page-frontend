@@ -23,7 +23,7 @@ export const BrandingImage = forwardRef(
           ${alt === "블록" &&
           css`
             margin-top: 1em;
-            margin-right: 6em;
+            margin-right: 9em;
           `}
           ${alt === "책" &&
           css`
@@ -58,17 +58,18 @@ export const BrandingImage = forwardRef(
             visibility: hidden;
             display: flex;
             width: auto;
-            height: 26em;
+            height: 15em;
 
             justify-content: center;
             align-items: center;
             ${alt === "블록" &&
             css`
-              height: 23em;
+              height: 15em;
             `}
             ${alt === "책" &&
             css`
-              height: 24em;
+              height: 16em;
+              transform: rotate(20deg);
             `}
             ${checked &&
             css`
