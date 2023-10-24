@@ -39,6 +39,10 @@ function App({ Component, pageProps }: AppProps) {
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta name="description" content="멋쟁이사자처럼 강남대학교" />
+            <meta
+              name="google-adsense-account"
+              content="ca-pub-1550225145364569"
+            />
             <link
               rel="stylesheet"
               type="text/css"
