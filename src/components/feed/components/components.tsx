@@ -137,6 +137,9 @@ export function List() {
         })}
       {data.length == 0 && (
         <Image
+          priority
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
           src={loading}
           alt="피드 로딩 이미지"
           width={0}
