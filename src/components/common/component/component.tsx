@@ -413,6 +413,9 @@ export const CategoryForMobile = () => {
             width={0}
             height={0}
             alt="조직 소개 아이콘"
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             css={css`
               width: 3rem;
               height: 3rem;
@@ -429,6 +432,9 @@ export const CategoryForMobile = () => {
         >
           <Image
             src={"https://www.kakaocorp.com/page/ico_tit_promise.gif"}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             width={0}
             height={0}
             alt="합류 여정 아이콘"
@@ -448,6 +454,9 @@ export const CategoryForMobile = () => {
         >
           <Image
             src={"https://www.kakaocorp.com/page/ico_milestones.gif"}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             width={0}
             height={0}
             alt="자주 묻는 질문 아이콘"
@@ -469,6 +478,9 @@ export const CategoryForMobile = () => {
             src={"https://www.kakaocorp.com/page/ico_tit_subsidiary.gif"}
             width={0}
             height={0}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
             alt="합류 여정 아이콘"
             css={css`
               width: 3rem;
