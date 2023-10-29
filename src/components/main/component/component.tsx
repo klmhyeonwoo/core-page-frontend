@@ -124,7 +124,8 @@ export const ApplyButton = () => {
           />
           <span
             css={css`
-              font-family: "Pretendard-Medium";
+              font-family: "Pretendard";
+              font-weight: 400;
               letter-spacing: -0.02em;
               color: white;
             `}
@@ -268,7 +269,8 @@ export const MainTitle = ({ text }: textProps) => {
         css={css`
           width: 15em;
           text-align: center;
-          font-family: "Pretendard-ExtraBold";
+          font-family: "Pretendard";
+          font-weight: 800;
           font-size: 3.43em;
           letter-spacing: -0.04em;
           // color: #333d4b;
