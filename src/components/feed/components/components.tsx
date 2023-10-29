@@ -41,6 +41,9 @@ export function Calendar() {
     >
       <Image
         src={`https://www.kakaocorp.com/page/calendar/light/ico_date${date}.gif`}
+        priority
+        placeholder="blur"
+        blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
         alt="캘린더"
         css={css`
           width: 5.3rem;
