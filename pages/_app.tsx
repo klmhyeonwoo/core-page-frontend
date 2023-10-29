@@ -57,6 +57,15 @@ function App({ Component, pageProps }: AppProps) {
         </>
       );
     }
+    case "admin": {
+      return (
+        <>
+          <ScrollToTop />
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </>
+      );
+    }
     default: {
       return (
         <>
