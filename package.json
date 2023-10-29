@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
+  },
   "dependencies": {
     "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
@@ -25,5 +29,8 @@
     "react-intersection-observer": "^9.4.3",
     "react-redux": "^8.0.5",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0"
   }
 }

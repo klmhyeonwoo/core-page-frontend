@@ -8,21 +8,24 @@ import education from "../../../../images/education.png";
 import Image from "next/image";
 import logo from "../../../../images/logo.png";
 import logo2 from "../../../../images/logo2.png";
-import instagram from "../../../../images/footer/instagram.svg";
-import facebook from "../../../../images/footer/facebook.svg";
-import channelTalk from "../../../../images/footer/channelTalk.svg";
+import Instagram from "../../../../images/footer/instagram.svg";
+import Facebook from "../../../../images/footer/facebook.svg";
+import ChannelTalk from "../../../../images/footer/channelTalk.svg";
 import category1 from "../../../../images/category/category1.webp";
 import category2 from "../../../../images/category/category2.webp";
 import category3 from "../../../../images/category/category3.webp";
 import category4 from "../../../../images/category/category4.webp";
+import Hamburger from "../../../../images/header/menu.svg";
+import Quit from "../../../../images/header/quit.svg";
 import { useInView } from "react-intersection-observer";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { TextfadeUp, fadeIn, fadeUp } from "@/styles/effect";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/src/app/store";
 import { url } from "inspector";
 import { useRouter } from "next/router";
+import { setOpenCategory } from "@/src/features/mobileSlice";
 
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
@@ -330,6 +333,391 @@ export function Category() {
   );
 }
 
+export const CategoryForMobile = () => {
+  const mobileMenu = useRef(null);
+  const dispatch = useDispatch();
+  const [currentScroll, setCurrentScroll] = useState(0);
+  const openCategory = useSelector(
+    (state: RootState) => state.mobile.openCategory
+  );
+
+  function disabledScroll() {
+    const scrollY = window.scrollY;
+
+    window.onscroll = function () {
+      window.scrollTo(0, scrollY);
+    };
+  }
+
+  function enableScroll() {
+    window.onscroll = null;
+  }
+
+  useEffect(() => {
+    if (openCategory) {
+      disabledScroll();
+    } else {
+      enableScroll();
+    }
+  }, [openCategory]);
+
+  return (
+    <section
+      css={css`
+        position: fixed;
+        width: 100vw;
+        height: 100%;
+        max-height: 100%;
+        background: white;
+        z-index: 9999;
+        ${openCategory
+          ? css`
+              transform: translateX(0%);
+            `
+          : css`
+              transform: translateX(100%);
+            `}
+        transition: 0.3s all;
+      `}
+    >
+      <CategoryHeader />
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          margin-top: 4rem;
+          padding: 1.7rem;
+          row-gap: 2.2rem;
+
+          a {
+            font-size: 1.7rem;
+            font-family: "Pretendard";
+            color: #404040;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+          }
+        `}
+      >
+        <Link
+          href="/"
+          tabIndex={-1}
+          onClick={() => {
+            dispatch(setOpenCategory({ openCategory: !openCategory }));
+          }}
+        >
+          <Image
+            src={"https://www.kakaocorp.com/page/ico_tit_culture.gif"}
+            width={0}
+            height={0}
+            alt="조직 소개 아이콘"
+            css={css`
+              width: 3rem;
+              height: 3rem;
+            `}
+          />
+          조직 소개
+        </Link>
+        <Link
+          href="/procedure"
+          tabIndex={-1}
+          onClick={() => {
+            dispatch(setOpenCategory({ openCategory: !openCategory }));
+          }}
+        >
+          <Image
+            src={"https://www.kakaocorp.com/page/ico_tit_promise.gif"}
+            width={0}
+            height={0}
+            alt="합류 여정 아이콘"
+            css={css`
+              width: 3rem;
+              height: 3rem;
+            `}
+          />
+          합류 여정
+        </Link>
+        <Link
+          href="/faq"
+          tabIndex={-1}
+          onClick={() => {
+            dispatch(setOpenCategory({ openCategory: !openCategory }));
+          }}
+        >
+          <Image
+            src={"https://www.kakaocorp.com/page/ico_milestones.gif"}
+            width={0}
+            height={0}
+            alt="자주 묻는 질문 아이콘"
+            css={css`
+              width: 3rem;
+              height: 3rem;
+            `}
+          />
+          자주 묻는 질문
+        </Link>
+        <Link
+          href="/feed"
+          tabIndex={-1}
+          onClick={() => {
+            dispatch(setOpenCategory({ openCategory: !openCategory }));
+          }}
+        >
+          <Image
+            src={"https://www.kakaocorp.com/page/ico_tit_subsidiary.gif"}
+            width={0}
+            height={0}
+            alt="합류 여정 아이콘"
+            css={css`
+              width: 3rem;
+              height: 3rem;
+            `}
+          />
+          피드
+        </Link>
+      </div>
+    </section>
+  );
+};
+
+export const CategoryHeader = () => {
+  const [scrollState, setScrollState] = useState<boolean>(false);
+  const [openingState, setOpeningState] = useState<boolean>(false);
+  const dispatch = useDispatch();
+
+  const openCategory = useSelector(
+    (state: RootState) => state.mobile.openCategory
+  );
+
+  // useMemo(() => {}, [window.scrollY || document.documentElement.scrollTop]);
+
+  const router = useRouter();
+
+  return (
+    <>
+      <div
+        css={css`
+          position: fixed;
+          z-index: 999;
+          width: 100%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+          column-gap: 30em;
+          font-size: 18px;
+
+          @media (max-width: 1024px) {
+            padding-left: 1.5rem;
+            padding-right: 1rem;
+            box-sizing: border-box;
+          }
+
+          @media (max-width: 388px) {
+            font-size: 10px;
+            column-gap: 1em;
+          }
+          @media (min-width: 388px) and (max-width: 481px) {
+            font-size: 12px;
+            column-gap: 1em;
+          }
+          @media (min-width: 481px) and (max-width: 768px) {
+            font-size: 13px;
+            column-gap: 2.5em;
+          }
+          @media all and (min-width: 768px) and (max-width: 1099px) {
+            font-size: 15px;
+            column-gap: 17.5em;
+          }
+          @media all and (min-width: 1100px) and (max-width: 2000px) {
+            font-size: 18px;
+          }
+
+          background-color: none;
+
+          a {
+            @media all and (min-width: 768px) and (max-width: 1099px) {
+              font-size: 14.8px;
+            }
+            @media all and (min-width: 1100px) and (max-width: 2000px) {
+              font-size: 14.8px;
+            }
+            color: #4e5968;
+            font-family: "Pretendard-Regular";
+            letter-spacing: -0.03em;
+          }
+
+          ${openingState &&
+          css`
+            border: solid;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1;
+            border-color: #e6e8ea;
+            border-width: 1px;
+            background-color: rgba(255, 255, 255, 0.88);
+            transition: 0.5s all;
+            color: #4e5968;
+
+            a {
+              color: #4e5968;
+            }
+          `}
+
+          ${scrollState &&
+          css`
+            // border: solid;
+            // border-top: 0;
+            // border-left: 0;
+            // border-right: 0;
+            // border-bottom: 1;
+            // border-color: #e6e8ea;
+            // border-width: 1px;
+            background-color: rgb(47, 53, 62, 0.7);
+            transition: 0.5s all;
+
+            a {
+              color: white;
+            }
+          `}
+        `}
+      >
+        <Image
+          width={0}
+          height={0}
+          alt="로고"
+          src={logo}
+          priority
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
+          css={css`
+            font-size: 18px;
+            cursor: pointer;
+
+            @media (max-width: 1024px) {
+              margin-right: auto;
+            }
+
+            @media (max-width: 388px) {
+              font-size: 11px;
+            }
+            @media (min-width: 388px) and (max-width: 481px) {
+              font-size: 15px;
+            }
+            @media (min-width: 481px) and (max-width: 768px) {
+              font-size: 15px;
+            }
+            @media all and (min-width: 768px) and (max-width: 1099px) {
+              font-size: 16px;
+            }
+            @media all and (min-width: 1100px) and (max-width: 2000px) {
+              font-size: 18px;
+            }
+
+            height: auto;
+            width: 8.61em;
+            transition: 0.4s all;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+          `}
+        />
+        <nav
+          css={css`
+            height: 100%;
+            display: flex;
+            column-gap: 1.3em;
+            transition: 0.4s all;
+
+            .menu {
+              display: none;
+            }
+
+            a {
+              border: none;
+              box-sizing: border-box;
+              padding: 0.9em;
+              border-radius: 0.5em;
+              transition: 0.5s all;
+            }
+
+            @media (max-width: 1024px) {
+              .menu {
+                display: block;
+              }
+
+              a {
+                display: none;
+              }
+            }
+
+            ${openingState
+              ? css`
+                  a:hover {
+                    background-color: rgba(2, 32, 71, 0.05);
+                  }
+                `
+              : css`
+                  a {
+                    // text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+                  }
+
+                  a:hover {
+                    background-color: rgba(217, 217, 255, 0.11);
+                  }
+                `}
+          `}
+        >
+          <div
+            onClick={() => {
+              dispatch(setOpenCategory({ openCategory: !openCategory }));
+            }}
+            css={css`
+              display: flex;
+              justify-content: center;
+            `}
+          >
+            {!openCategory ? (
+              <Hamburger
+                className="menu"
+                css={css`
+                  width: 1.5rem;
+                  height: auto;
+                  padding: 0.5rem;
+                  transition: 0.4s all;
+                  ${scrollState
+                    ? css`
+                        path {
+                          stroke: white;
+                        }
+                      `
+                    : css`
+                        path {
+                          stroke: #404040;
+                        }
+                      `}
+                `}
+              />
+            ) : (
+              <Quit
+                css={css`
+                  width: 1.4rem;
+                  padding: 0.5rem;
+                  height: auto;
+                `}
+              />
+            )}
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+};
+
 // 소개 페이지의 공통적인 헤더를 나타내주는 컴포넌트
 export const Header = () => {
   const [scrollState, setScrollState] = useState<boolean>(false);
@@ -337,6 +725,10 @@ export const Header = () => {
   const openingScroll = useSelector(
     (state: RootState) => state.scroll.openingScroll
   );
+  const openCategory = useSelector(
+    (state: RootState) => state.mobile.openCategory
+  );
+  const dispatch = useDispatch();
 
   // console.log(openingScroll);
 
@@ -377,6 +769,7 @@ export const Header = () => {
 
   return (
     <>
+      {<CategoryForMobile />}
       <div
         css={css`
           position: fixed;
@@ -390,6 +783,12 @@ export const Header = () => {
           column-gap: 30em;
           font-size: 18px;
           transition: 0.5s all;
+
+          @media (max-width: 1024px) {
+            padding-left: 1.5rem;
+            padding-right: 1rem;
+            box-sizing: border-box;
+          }
 
           @media (max-width: 388px) {
             font-size: 10px;
@@ -476,11 +875,15 @@ export const Header = () => {
               font-size: 18px;
               cursor: pointer;
 
+              @media (max-width: 1024px) {
+                margin-right: auto;
+              }
+
               @media (max-width: 388px) {
                 font-size: 11px;
               }
               @media (min-width: 388px) and (max-width: 481px) {
-                font-size: 13px;
+                font-size: 15px;
               }
               @media (min-width: 481px) and (max-width: 768px) {
                 font-size: 15px;
@@ -515,11 +918,15 @@ export const Header = () => {
               font-size: 18px;
               cursor: pointer;
 
+              @media (max-width: 1024px) {
+                margin-right: auto;
+              }
+
               @media (max-width: 388px) {
                 font-size: 11px;
               }
               @media (min-width: 388px) and (max-width: 481px) {
-                font-size: 13px;
+                font-size: 15px;
               }
               @media (min-width: 481px) and (max-width: 768px) {
                 font-size: 15px;
@@ -556,6 +963,20 @@ export const Header = () => {
               transition: 0.5s all;
             }
 
+            .menu {
+              display: none;
+            }
+
+            @media (max-width: 1024px) {
+              .menu {
+                display: block;
+              }
+
+              a {
+                display: none;
+              }
+            }
+
             ${openingState
               ? css`
                   a:hover {
@@ -582,6 +1003,32 @@ export const Header = () => {
           <Link href="/faq" tabIndex={-1}>
             자주 묻는 질문
           </Link>
+          <Link href="/feed" tabIndex={-1}>
+            피드
+          </Link>
+          <Hamburger
+            className="menu"
+            css={css`
+              width: 1.5rem;
+              height: auto;
+              padding: 0.5rem;
+              transition: 0.4s all;
+              ${openingState
+                ? css`
+                    path {
+                      stroke: #404040;
+                    }
+                  `
+                : css`
+                    path {
+                      stroke: white;
+                    }
+                  `}
+            `}
+            onClick={() => {
+              dispatch(setOpenCategory({ openCategory: !openCategory }));
+            }}
+          />
         </nav>
       </div>
     </>
@@ -592,6 +1039,11 @@ export const Header = () => {
 export const SideHeader = () => {
   const [scrollState, setScrollState] = useState<boolean>(false);
   const [openingState, setOpeningState] = useState<boolean>(false);
+  const dispatch = useDispatch();
+
+  const openCategory = useSelector(
+    (state: RootState) => state.mobile.openCategory
+  );
   const openingScroll = useSelector(
     (state: RootState) => state.scroll.openingScroll
   );
@@ -617,6 +1069,7 @@ export const SideHeader = () => {
 
   return (
     <>
+      {<CategoryForMobile />}
       <div
         css={css`
           position: fixed;
@@ -629,7 +1082,12 @@ export const SideHeader = () => {
           padding-bottom: 0.5em;
           column-gap: 30em;
           font-size: 18px;
-          cursor: pointer;
+
+          @media (max-width: 1024px) {
+            padding-left: 1.5rem;
+            padding-right: 1rem;
+            box-sizing: border-box;
+          }
 
           @media (max-width: 388px) {
             font-size: 10px;
@@ -715,11 +1173,15 @@ export const SideHeader = () => {
               font-size: 18px;
               cursor: pointer;
 
+              @media (max-width: 1024px) {
+                margin-right: auto;
+              }
+
               @media (max-width: 388px) {
                 font-size: 11px;
               }
               @media (min-width: 388px) and (max-width: 481px) {
-                font-size: 13px;
+                font-size: 15px;
               }
               @media (min-width: 481px) and (max-width: 768px) {
                 font-size: 15px;
@@ -752,12 +1214,17 @@ export const SideHeader = () => {
             onClick={() => router.push("/")}
             css={css`
               font-size: 18px;
+              cursor: pointer;
+
+              @media (max-width: 1024px) {
+                margin-right: auto;
+              }
 
               @media (max-width: 388px) {
                 font-size: 11px;
               }
               @media (min-width: 388px) and (max-width: 481px) {
-                font-size: 13px;
+                font-size: 15px;
               }
               @media (min-width: 481px) and (max-width: 768px) {
                 font-size: 15px;
@@ -786,12 +1253,26 @@ export const SideHeader = () => {
             column-gap: 1.3em;
             transition: 0.4s all;
 
+            .menu {
+              display: none;
+            }
+
             a {
               border: none;
               box-sizing: border-box;
               padding: 0.9em;
               border-radius: 0.5em;
               transition: 0.5s all;
+            }
+
+            @media (max-width: 1024px) {
+              .menu {
+                display: block;
+              }
+
+              a {
+                display: none;
+              }
             }
 
             ${openingState
@@ -820,6 +1301,32 @@ export const SideHeader = () => {
           <Link href="/faq" tabIndex={-1}>
             자주 묻는 질문
           </Link>
+          <Link href="/feed" tabIndex={-1}>
+            피드
+          </Link>
+          <Hamburger
+            className="menu"
+            css={css`
+              width: 1.5rem;
+              height: auto;
+              padding: 0.5rem;
+              transition: 0.4s all;
+              ${scrollState
+                ? css`
+                    path {
+                      stroke: white;
+                    }
+                  `
+                : css`
+                    path {
+                      stroke: #404040;
+                    }
+                  `}
+            `}
+            onClick={() => {
+              dispatch(setOpenCategory({ openCategory: !openCategory }));
+            }}
+          />
         </nav>
       </div>
     </>
@@ -913,9 +1420,9 @@ export const FooterSNS = () => {
         column-gap: 0.7em;
       `}
     >
-      <FooterIcon src={facebook} alt="페이스북" />
-      <FooterIcon src={channelTalk} alt="채널톡" />
-      <FooterIcon src={instagram} alt="인스타그램" />
+      <FooterIcon src={Facebook} alt="페이스북" />
+      <FooterIcon src={ChannelTalk} alt="채널톡" />
+      <FooterIcon src={Instagram} alt="인스타그램" />
     </div>
   );
 };
@@ -930,13 +1437,11 @@ export const FooterIcon = ({ src, alt }: imgProps) => {
   const select = alt ? url[alt] : "#";
 
   return (
-    <Link href={select} target="_blank">
-      <Image
-        width={0}
-        height={0}
-        src={src}
-        alt={`${alt}`}
-        css={css`
+    <Link
+      href={select}
+      target="_blank"
+      css={css`
+        svg {
           margin-top: 1em;
           width: 2.4em;
           height: auto;
@@ -949,8 +1454,12 @@ export const FooterIcon = ({ src, alt }: imgProps) => {
             opacity: 100%;
             filter: brightness(100%);
           }
-        `}
-      />
+        }
+      `}
+    >
+      {alt === "페이스북" && <Facebook />}
+      {alt === "인스타그램" && <Instagram />}
+      {alt === "채널톡" && <ChannelTalk />}
     </Link>
   );
 };

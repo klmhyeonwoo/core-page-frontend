@@ -36,6 +36,7 @@ export const FAQContent = () => {
           flex-direction: column;
           row-gap: 1em;
           overflow: auto;
+          margin-top: -5rem;
 
           @media (max-width: 1100px) {
             padding-left: 1em;
