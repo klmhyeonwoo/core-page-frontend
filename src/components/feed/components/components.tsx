@@ -99,6 +99,7 @@ export function List() {
             date: res.data[i].date,
             title: res.data[i].title,
             link: res.data[i].link,
+            writer: res.data[i].writer,
           });
         });
 
@@ -130,6 +131,7 @@ export function List() {
                 title={item.title}
                 link={item.link}
                 date={item.date}
+                writer={item.writer}
                 key={item.link}
               />
             </>
@@ -194,7 +196,7 @@ export function Item({ ...props }) {
           width: 100%;
           height: 4rem;
           font-size: 1rem;
-          margin-bottom: 0.7rem;
+          margin-bottom: 1.6rem;
 
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -203,6 +205,13 @@ export function Item({ ...props }) {
         `}
       >
         {props.title}
+      </span>
+      <span
+        css={css`
+          font-size: 0.9rem;
+        `}
+      >
+        {props.writer}
       </span>
       <span
         css={css`
