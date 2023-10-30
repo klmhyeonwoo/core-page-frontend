@@ -269,8 +269,7 @@ export const MainTitle = ({ text }: textProps) => {
         css={css`
           width: 15em;
           text-align: center;
-          font-family: "Pretendard";
-          font-weight: 800;
+          font-family: "Pretendard-ExtraBold";
           font-size: 3.43em;
           letter-spacing: -0.04em;
           // color: #333d4b;
