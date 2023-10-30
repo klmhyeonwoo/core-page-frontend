@@ -8,12 +8,16 @@ import {
 } from "../src/components/common/component/component";
 import wrapper from "@/src/app/store";
 import ScrollToTop from "@/src/hook/ScrollToTop";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useState } from "react";
 
 function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
+
   switch (pageProps.layout) {
     case "main": {
       return (
-        <>
+        <QueryClientProvider client={queryClient}>
           <Head>
             <meta charSet="utf-8" />
             <link rel="icon" href="/favicon.ico" />
@@ -54,7 +58,7 @@ function App({ Component, pageProps }: AppProps) {
           <GlobalStyles />
           <Header />
           <Component {...pageProps} />
-        </>
+        </QueryClientProvider>
       );
     }
     case "admin": {
@@ -62,13 +66,15 @@ function App({ Component, pageProps }: AppProps) {
         <>
           <ScrollToTop />
           <GlobalStyles />
-          <Component {...pageProps} />
+          <QueryClientProvider client={queryClient}>
+            <Component {...pageProps} />
+          </QueryClientProvider>
         </>
       );
     }
     default: {
       return (
-        <>
+        <QueryClientProvider client={queryClient}>
           <Head>
             <meta charSet="utf-8" />
             <link rel="icon" href="/favicon.ico" />
@@ -106,7 +112,7 @@ function App({ Component, pageProps }: AppProps) {
           <GlobalStyles />
           <SideHeader />
           <Component {...pageProps} />
-        </>
+        </QueryClientProvider>
       );
     }
   }

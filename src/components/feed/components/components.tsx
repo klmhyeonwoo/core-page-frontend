@@ -5,6 +5,7 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import axios from "axios";
 import loading from "../../../../images/feed/loading.gif";
+import { useQuery } from "react-query";
 
 export default function components() {
   return <div>components</div>;
@@ -85,29 +86,36 @@ export function Calendar() {
 }
 
 export function List() {
-  const [data, setData] = useState<feedProps[]>([]);
-  useEffect(() => {
-    axios
-      .get(
-        "https://raw.githubusercontent.com/klmhyeonwoo/klmhyeonwoo/main/data/feed.json"
-      )
-      .then((res) => {
-        let feed: feedProps[] = [];
+  const [list, setList] = useState<feedProps[]>([]);
 
-        Object.keys(res.data).forEach((i) => {
-          feed.push({
-            date: res.data[i].date,
-            title: res.data[i].title,
-            link: res.data[i].link,
-            writer: res.data[i].writer,
+  const CACHE_TIME = 1000 * 60 * 60; // 60m
+  const STALE_TIME = 1000 * 60 * 60; // 60m
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["feedData"],
+    queryFn: () =>
+      axios
+        .get(
+          "https://raw.githubusercontent.com/klmhyeonwoo/klmhyeonwoo/main/data/feed.json"
+        )
+        .then((res) => {
+          let feed: feedProps[] = [];
+
+          Object.keys(res.data).forEach((i) => {
+            feed.push({
+              date: res.data[i].date,
+              title: res.data[i].title,
+              link: res.data[i].link,
+              writer: res.data[i].writer,
+            });
           });
-        });
 
-        if (feed.length >= 1) {
-          setData(feed);
-        }
-      });
-  }, []);
+          return feed;
+        }),
+    staleTime: STALE_TIME,
+    cacheTime: CACHE_TIME,
+  });
+
   return (
     <div
       css={css`
@@ -123,7 +131,8 @@ export function List() {
         }
       `}
     >
-      {data.length >= 1 &&
+      {data &&
+        data.length >= 1 &&
         data.map((item: feedProps) => {
           return (
             <>
@@ -137,7 +146,7 @@ export function List() {
             </>
           );
         })}
-      {data.length == 0 && (
+      {isLoading && (
         <Image
           priority
           placeholder="blur"
@@ -147,9 +156,10 @@ export function List() {
           width={0}
           height={0}
           css={css`
-            width: 4rem;
-            height: 4rem;
+            width: 10rem;
+            height: 10rem;
             position: absolute;
+            border-radius: 50rem;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
