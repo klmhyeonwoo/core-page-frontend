@@ -89,7 +89,7 @@ export function List() {
   const [list, setList] = useState<feedProps[]>([]);
 
   const CACHE_TIME = 1000 * 60 * 60; // 60m
-  const STALE_TIME = 1000 * 60 * 5; // 60m
+  const STALE_TIME = 1000 * 60 * 60; // 60m
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["feedData"],
