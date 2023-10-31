@@ -27,9 +27,7 @@ export function Calendar() {
   const dateObj = new Date();
   const month = dateObj.getMonth() + 1;
   let date: string | number = dateObj.getDate();
-  if (date < 10) {
-    date = "0" + String(date);
-  }
+
   return (
     <div
       css={css`
@@ -71,7 +69,8 @@ export function Calendar() {
             font-weight: 700;
           `}
         >
-          {month}월 {date}일 피드 소식
+          {month}월 {(date as number) < 10 ? "0" + String(date) : date}일 피드
+          소식
         </span>
         <span
           css={css`
