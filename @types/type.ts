@@ -59,6 +59,7 @@ export interface feedProps {
 }
 
 export interface buttonProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   text: string;
+  state: boolean;
 }

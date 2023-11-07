@@ -80,7 +80,7 @@ export default function Notice() {
     }
   }
 
-  function handleSubmit(event: MouseEventHandler<HTMLButtonElement>) {
+  function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
     submitEmail.mutate();
     setName("");
     setEmail("");
