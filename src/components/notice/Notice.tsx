@@ -141,6 +141,7 @@ export default function Notice() {
           src={notice}
           width={0}
           height={0}
+          blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
           css={css`
             width: 9rem;
             height: 9rem;

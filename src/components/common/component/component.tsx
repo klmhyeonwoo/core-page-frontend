@@ -1560,6 +1560,8 @@ export function Modal() {
                 alt="모달 이미지"
                 width={0}
                 height={0}
+                priority
+                blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
                 css={css`
                   width: 10rem;
                   height: 10rem;
@@ -1572,6 +1574,8 @@ export function Modal() {
                 alt="모달 이미지"
                 width={0}
                 height={0}
+                priority
+                blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
                 css={css`
                   width: 10rem;
                   height: 10rem;
