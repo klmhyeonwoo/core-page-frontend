@@ -63,3 +63,10 @@ export interface buttonProps {
   text: string;
   state: boolean;
 }
+
+export interface inputProps {
+  placeholder: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  name: string;
+}

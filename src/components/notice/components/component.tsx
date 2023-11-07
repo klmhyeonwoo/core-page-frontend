@@ -1,9 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import { css } from "@emotion/react";
-import { InputProps } from "style-components/dist/components/Input/Input";
-import { ButtonProps } from "style-components/dist/components/Botton/Button";
-import { buttonProps } from "@/@types/type";
+import { buttonProps, inputProps } from "@/@types/type";
 
 export function Title() {
   return (
@@ -44,7 +42,7 @@ export default function Input({
   value,
   onChange,
   name,
-}: InputProps) {
+}: inputProps) {
   return (
     <input
       placeholder={placeholder}
