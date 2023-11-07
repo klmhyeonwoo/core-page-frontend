@@ -10,6 +10,14 @@ const nextConfig = {
       },
     ],
   },
+  rewrites: () => {
+    return [
+      {
+        source: "/:path*",
+        destination: "http://api.likelion-apply.org/:path*",
+      },
+    ];
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,

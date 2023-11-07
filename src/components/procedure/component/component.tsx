@@ -38,7 +38,7 @@ const Content = () => {
         @media (max-width: 1100px) {
           flex-direction: column;
           row-gap: 4em;
-          margin-top: 18em;
+          margin-top: 30em;
           padding-left: 1.5em;
           padding-right: 1.5em;
           padding-bottom: 2em;
