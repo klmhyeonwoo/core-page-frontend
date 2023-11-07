@@ -15,6 +15,8 @@ import category1 from "../../../../images/category/category1.webp";
 import category2 from "../../../../images/category/category2.webp";
 import category3 from "../../../../images/category/category3.webp";
 import category4 from "../../../../images/category/category4.webp";
+import complete from "../../../../images/notice/complete.png";
+import fail from "../../../../images/notice/fail.gif";
 import Hamburger from "../../../../images/header/menu.svg";
 import Quit from "../../../../images/header/quit.svg";
 import { useInView } from "react-intersection-observer";
@@ -26,6 +28,8 @@ import { RootState } from "@/src/app/store";
 import { url } from "inspector";
 import { useRouter } from "next/router";
 import { setOpenCategory } from "@/src/features/mobileSlice";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { modalState } from "@/src/features/state";
 
 export const TitleOfBlue = forwardRef(
   ({ text, scrollState }: textProps, ref: any) => {
@@ -488,6 +492,28 @@ export const CategoryForMobile = () => {
             `}
           />
           피드
+        </Link>
+        <Link
+          href="/notice"
+          tabIndex={-1}
+          onClick={() => {
+            dispatch(setOpenCategory({ openCategory: !openCategory }));
+          }}
+        >
+          <Image
+            src={"https://www.kakaocorp.com/page/ico_tit_news.gif"}
+            width={0}
+            height={0}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
+            alt="합류 여정 아이콘"
+            css={css`
+              width: 3rem;
+              height: 3rem;
+            `}
+          />
+          모집 알림
         </Link>
       </div>
     </section>
@@ -1018,6 +1044,9 @@ export const Header = () => {
           <Link href="/feed" tabIndex={-1}>
             피드
           </Link>
+          <Link href="/notice" tabIndex={-1}>
+            모집 알림
+          </Link>
           <Hamburger
             className="menu"
             css={css`
@@ -1316,6 +1345,9 @@ export const SideHeader = () => {
           <Link href="/feed" tabIndex={-1}>
             피드
           </Link>
+          <Link href="/notice" tabIndex={-1}>
+            모집 알림
+          </Link>
           <Hamburger
             className="menu"
             css={css`
@@ -1475,3 +1507,114 @@ export const FooterIcon = ({ src, alt }: imgProps) => {
     </Link>
   );
 };
+
+export function Modal() {
+  const getModal = useRecoilValue(modalState);
+  const setModal = useSetRecoilState(modalState);
+
+  return (
+    <>
+      {getModal.status ? (
+        <div
+          css={css`
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            z-index: 5;
+            width: 100vw;
+            height: 100vh;
+          `}
+        >
+          <div
+            css={css`
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: white;
+              opacity: 100% !important;
+              width: 27.8rem;
+              height: 26.5rem;
+              border-radius: 0.9rem;
+              z-index: 6;
+              pointer-events: auto;
+
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              row-gap: 1.5rem;
+            `}
+          >
+            <div
+              css={css`
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #404040;
+              `}
+            >
+              {getModal.title}
+            </div>
+            {getModal.type == "fail" && (
+              <Image
+                src={fail}
+                alt="모달 이미지"
+                width={0}
+                height={0}
+                css={css`
+                  width: 10rem;
+                  height: 10rem;
+                `}
+              />
+            )}
+            {getModal.type == "notice" && (
+              <Image
+                src={complete}
+                alt="모달 이미지"
+                width={0}
+                height={0}
+                css={css`
+                  width: 10rem;
+                  height: 10rem;
+                `}
+              />
+            )}
+            <div
+              css={css`
+                font-size: 0.9rem;
+                font-weight: 400;
+                color: #404040;
+              `}
+            >
+              {getModal.message}
+            </div>
+            <button
+              css={css`
+                width: 18rem;
+                height: 3.5rem;
+                border-radius: 0.6rem;
+                font-size: 1rem;
+                border: none;
+                background-color: #3182f6;
+                color: white;
+                cursor: pointer;
+                transition: 0.4s all;
+
+                &:hover {
+                  opacity: 80%;
+                }
+              `}
+              onClick={() =>
+                setModal((prevModalData) => ({
+                  ...prevModalData,
+                  status: !prevModalData.status,
+                }))
+              }
+            >
+              확인했어요
+            </button>
+          </div>
+        </div>
+      ) : null}
+    </>
+  );
+}

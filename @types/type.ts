@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 export interface WrapperProps {
   children: React.ReactNode;
@@ -56,4 +56,9 @@ export interface feedProps {
   link: string;
   date: string;
   writer: string;
+}
+
+export interface buttonProps {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  text: string;
 }
