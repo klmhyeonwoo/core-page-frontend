@@ -38,7 +38,7 @@ export default function Notice() {
         message: "모집 날이 다가오면 이메일로 발송을 도와드릴게요!",
       });
     },
-    onError: (res) => {
+    onError: (res: any) => {
       if (res?.response.status === 409) {
         setModal({
           title: "이미 신청된 정보로 조회되고 있어요",
