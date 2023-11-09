@@ -1602,6 +1602,7 @@ export function Modal() {
                 color: white;
                 cursor: pointer;
                 transition: 0.4s all;
+                font-family: "Pretendard";
 
                 &:hover {
                   opacity: 80%;

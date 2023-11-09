@@ -58,6 +58,13 @@ function App({ Component, pageProps }: AppProps) {
                 type="text/css"
                 href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
               />
+              <link
+                rel="preload"
+                as="font"
+                type="font/woff"
+                crossOrigin=""
+                href={`https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff`}
+              />
               <title> 멋쟁이사자처럼 </title>
             </Head>
             <ScrollToTop />
@@ -111,11 +118,17 @@ function App({ Component, pageProps }: AppProps) {
               <meta property="og:image:width" content="1200" />
               <meta property="og:image:height" content="630" />
               <meta name="description" content="멋쟁이사자처럼 강남대학교" />
-
               <link
                 rel="stylesheet"
                 type="text/css"
                 href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
+              />
+              <link
+                rel="preload"
+                as="font"
+                type="font/woff"
+                crossOrigin=""
+                href={`https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff`}
               />
               <title> 멋쟁이사자처럼 </title>
             </Head>

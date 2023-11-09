@@ -55,9 +55,11 @@ export default function Input({
         padding-left: 1.4rem;
         box-sizing: border-box;
         font-size: 1rem;
+        font-family: "Pretendard";
         font-weight: 400;
         color: #404040;
         border: none;
+        -webkit-appearance: none;
         box-shadow: inset 0 0 0 1px rgba(0, 27, 55, 0.1);
         transition: 0.4s all;
 
@@ -94,6 +96,7 @@ export function Button({ onClick, text, state }: buttonProps) {
         font-size: 1.1rem;
         font-weight: 400;
         color: white;
+        font-family: "Pretendard";
         background-color: #3182f6;
         border: none;
         transition: 0.4s all;
