@@ -343,7 +343,7 @@ const SkillImage = ({ src, alt }: imgProps) => {
       width={0}
       height={0}
       src={src}
-      priority
+      priority={false}
       placeholder="blur"
       css={css`
         width: 6em;
