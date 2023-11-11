@@ -24,6 +24,11 @@ function App({ Component, pageProps }: AppProps) {
             <Head>
               <meta charSet="utf-8" />
               <link rel="icon" href="/favicon.ico" />
+              <link
+                rel="manifest"
+                href="/manifest.json"
+                crossOrigin="use-credentials"
+              />
               <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1"
@@ -93,6 +98,11 @@ function App({ Component, pageProps }: AppProps) {
             <Head>
               <meta charSet="utf-8" />
               <link rel="icon" href="/favicon.ico" />
+              <link
+                rel="manifest"
+                href="/manifest.json"
+                crossOrigin="use-credentials"
+              />
               <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1"
