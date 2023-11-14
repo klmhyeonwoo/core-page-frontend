@@ -252,8 +252,8 @@ interface Notification {
   tag?: string;
   timestamp?: number;
   title?: string;
-  close(): void;
-  requestPermission(): Promise<string>;
+  close?: () => void;
+  requestPermission?: () => Promise<string>;
 }
 
 interface NotificationEvent {
@@ -312,7 +312,6 @@ declare var onpush: (event?: PushEvent) => any;
 declare var onpushsubscriptionchange: () => any;
 declare var onsync: (event?: SyncEvent) => any;
 declare var registration: ServiceWorkerRegistration;
-declare var window: Window;
 
 declare function fetch(request: Request | string): Promise<Response>;
 declare function skipWaiting(): void;

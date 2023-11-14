@@ -1,6 +1,7 @@
 /// <reference types="../node_modules/types-serviceworker" />
 /// <reference types="../node_modules/types-serviceworker/lib/workbox" />
 
+export {};
 const CACHE_NAME = "version-1";
 const urlsToCache = ["/", "index.html", "favicon.ico"];
 

@@ -21,13 +21,13 @@ function App({ Component, pageProps }: AppProps) {
       console.log("Service Worker and Push is supported");
       window.addEventListener("load", function () {
         navigator.serviceWorker
-          .register("/sw.js")
+          .register("../public/sw.ts")
           .then((registration) => {
             registration.pushManager.subscribe({
               userVisibleOnly: true,
               //applicationServerKey: 원래는 줘야함...
             });
-            Notification.requestPermission(); //푸시 허용할지 창 띄움
+            window.Notification.requestPermission(); //푸시 허용할지 창 띄움
             console.log(
               "ServiceWorker registration successful with scope: ",
               registration
