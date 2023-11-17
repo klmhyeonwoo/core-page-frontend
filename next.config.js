@@ -14,7 +14,7 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        destination: "http://api.likelion-apply.org/:path*",
+        destination: "https://api.likelion-apply.org/:path*",
       },
     ];
   },
