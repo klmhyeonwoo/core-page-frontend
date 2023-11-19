@@ -126,7 +126,7 @@ export function List() {
         row-gap: 2rem;
 
         @media (max-width: 1024px) {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         }
       `}
     >
