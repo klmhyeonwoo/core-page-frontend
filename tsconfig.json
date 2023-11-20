@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "es2017", "webworker"],
+    "lib": ["dom", "dom.iterable", "es2017", "WebWorker"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -25,7 +25,10 @@
     "@types/index.d.ts",
     "@types/service-worker.d.ts",
     "@types/global.d.ts",
-    "service-worker.ts"
+    "service-worker.ts",
+    "public/service-worker.js",
+    "public/firebase-message-sw.js",
+    "public/firebase-message-sw.js"
   ],
   "exclude": ["node_modules"]
 }

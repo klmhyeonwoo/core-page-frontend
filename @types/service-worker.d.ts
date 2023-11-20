@@ -300,7 +300,7 @@ declare var Headers: Headers;
 declare var Response: Response;
 declare var Request: Request;
 declare var caches: CacheStorage;
-declare var self: any;
+declare var self: ServiceWorkerGlobalScope;
 declare var clients: Clients;
 declare var onactivate: (event?: ExtendableEvent) => any;
 declare var onfetch: (event?: FetchEvent) => any;
