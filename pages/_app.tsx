@@ -8,35 +8,36 @@ import {
   SideHeader,
 } from "../src/components/common/component/component";
 import wrapper from "@/src/app/store";
+import "firebase/messaging";
 import ScrollToTop from "@/src/hook/ScrollToTop";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
 import { RecoilRoot } from "recoil";
+import "../utils/firebase-messaging-sw";
+import { requestToken } from "../utils/firebase-messaging-sw";
 
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
   if (typeof window !== "undefined") {
-    if ("serviceWorker" in window.navigator) {
-      console.log("Service Worker and Push is supported");
-      window.addEventListener("load", function () {
-        navigator.serviceWorker
-          .register("../public/sw.ts")
-          .then((registration) => {
-            registration.pushManager.subscribe({
-              userVisibleOnly: true,
-              //applicationServerKey: 원래는 줘야함...
-            });
-            window.Notification.requestPermission(); //푸시 허용할지 창 띄움
-            console.log(
-              "ServiceWorker registration successful with scope: ",
-              registration
-            );
-          })
-          .catch((err) => {
-            console.log("ServiceWorker registration failed: ", err);
-          });
-      });
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) => {
+          console.log("service worker registration successful");
+          window.Notification.requestPermission().then((res) => {
+            if (res === "granted") {
+              requestToken();
+            }
+          }); //푸시 허용할지 창 띄움
+          // console.log(
+          //   "ServiceWorker registration successful with scope: ",
+          //   registration
+          // );
+        })
+        .catch((err) => {
+          console.warn("service worker registration failed", err.message);
+        });
     }
   }
 

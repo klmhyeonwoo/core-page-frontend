@@ -1,8 +1,9 @@
-export {};
+self.__WB_DISABLE_DEV_LOGS = true;
+
 const CACHE_NAME = "version-1";
 const urlsToCache = ["/", "index.html", "favicon.ico"];
 
-self.addEventListener("install", function (event: any) {
+self.addEventListener("install", function (event) {
   //캐싱기능
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
@@ -12,7 +13,7 @@ self.addEventListener("install", function (event: any) {
   );
 });
 
-self.addEventListener("fetch", function (event: any) {
+self.addEventListener("fetch", function (event) {
   //업데이트기능
   event.respondWith(
     caches.match(event.request).then(function (response) {
@@ -21,8 +22,8 @@ self.addEventListener("fetch", function (event: any) {
     })
   );
 });
-self.addEventListener("activate", function (event: any) {
-  const cacheWhitelist: any = [];
+self.addEventListener("activate", function (event) {
+  const cacheWhitelist = [];
   cacheWhitelist.push(CACHE_NAME);
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
@@ -37,7 +38,7 @@ self.addEventListener("activate", function (event: any) {
   );
 });
 
-self.addEventListener("push", (event: any) => {
+self.addEventListener("push", (event) => {
   //푸시기능
   const title = "공지사항";
   const options = {
