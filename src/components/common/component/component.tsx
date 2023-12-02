@@ -1572,6 +1572,7 @@ export function Modal() {
               <Image
                 src={complete}
                 alt="모달 이미지"
+                unoptimized={true}
                 width={0}
                 height={0}
                 priority
