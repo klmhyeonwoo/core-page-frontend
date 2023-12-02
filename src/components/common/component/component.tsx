@@ -15,7 +15,7 @@ import category1 from "../../../../images/category/category1.webp";
 import category2 from "../../../../images/category/category2.webp";
 import category3 from "../../../../images/category/category3.webp";
 import category4 from "../../../../images/category/category4.webp";
-import complete from "../../../../images/notice/complete.png";
+import complete from "../../../../images/notice/complete.gif";
 import fail from "../../../../images/notice/fail.gif";
 import Hamburger from "../../../../images/header/menu.svg";
 import Quit from "../../../../images/header/quit.svg";
