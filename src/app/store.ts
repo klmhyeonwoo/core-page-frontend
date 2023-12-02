@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import scrollSlice from "../features/scrollSlice";
 import { createWrapper } from "next-redux-wrapper";
+import mobileSlice from "../features/mobileSlice";
 
 const makeState = () => {
-    const store = configureStore({
-        reducer: {
-            scroll: scrollSlice
-        },
-    })
-    return store    
-}
+  const store = configureStore({
+    reducer: {
+      scroll: scrollSlice,
+      mobile: mobileSlice,
+    },
+  });
+  return store;
+};
 
 const wrapper = createWrapper(makeState);
 
@@ -17,6 +19,6 @@ const wrapper = createWrapper(makeState);
 // export type TestState = ReturnType<typeof store.getState>
 
 export type AppStore = ReturnType<typeof makeState>;
-export type AppDisPatch = AppStore['dispatch'];
-export type RootState = ReturnType<AppStore['getState']>
+export type AppDisPatch = AppStore["dispatch"];
+export type RootState = ReturnType<AppStore["getState"]>;
 export default wrapper;

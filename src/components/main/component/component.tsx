@@ -83,7 +83,7 @@ export const MainArticle = () => {
 export const ApplyButton = () => {
   return (
     <>
-      <Link href={"https://knu-likelion.org"} target="_blank">
+      <Link href={"http://likelion-apply.org/"} target="_blank">
         <div
           css={css`
             margin-top: 3em;
@@ -91,7 +91,7 @@ export const ApplyButton = () => {
             min-width: 17em;
             height: 3.5em;
             border: none;
-            border-radius: 0.7em;
+            border-radius: 0.5em;
             background-color: rgba(0, 12, 30, 0.8);
             display: flex;
             justify-content: center;
@@ -111,24 +111,26 @@ export const ApplyButton = () => {
           `}
         >
           <Image
+            width={0}
+            height={0}
             src={space}
             priority
             alt="메인 로고"
             placeholder="blur"
             css={css`
-              margin-top: 0.3em;
-              width: 2em;
+              width: 2.2em;
               height: auto;
             `}
           />
           <span
             css={css`
-              font-family: "Pretendard-Medium";
+              font-family: "Pretendard";
+              font-weight: 400;
               letter-spacing: -0.02em;
               color: white;
             `}
           >
-            멋쟁이사자처럼 팀에 합류하고 싶으신가요?
+            팀 멋쟁이사자처럼 합류하기
           </span>
         </div>
       </Link>
@@ -166,6 +168,8 @@ export const Icon = ({ src, alt }: imgProps) => {
   return (
     <>
       <Image
+        width={0}
+        height={0}
         css={css`
           visibility: hidden;
           display: block;
@@ -234,6 +238,8 @@ export const BackGroundImg = ({ src }: imgProps) => {
       `}
     >
       <Image
+        width={0}
+        height={0}
         src={src}
         alt="백그라운드 이미지"
         css={css`
@@ -261,7 +267,7 @@ export const MainTitle = ({ text }: textProps) => {
     <>
       <div
         css={css`
-          width: 20em;
+          width: 15em;
           text-align: center;
           font-family: "Pretendard-ExtraBold";
           font-size: 3.43em;

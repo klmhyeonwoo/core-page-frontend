@@ -1,52 +1,72 @@
 import { StaticImageData } from "next/image";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 export interface WrapperProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export interface textProps {
-    text: string;
-    ref?: React.RefObject<HTMLSpanElement>;
-    scrollState?: boolean;
+  text: string;
+  ref?: React.RefObject<HTMLSpanElement>;
+  scrollState?: boolean;
 }
 
 export interface refProps {
-    ref?: React.RefObject<HTMLDivElement>;
-    scrollState?: boolean;
+  ref?: React.RefObject<HTMLDivElement>;
+  scrollState?: boolean;
 }
 
 export interface imgProps {
-    src: string | StaticImageData;
-    alt?: string;
+  src: string | StaticImageData;
+  alt?: string;
 }
 
 export interface brandImgProps {
-    src: string | StaticImageData;
-    alt: string;
-    ref?: React.RefObject<HTMLSpanElement>;
-    scrollState?: boolean;
+  src: string | StaticImageData;
+  alt: string;
+  ref?: React.RefObject<HTMLSpanElement>;
+  scrollState?: boolean;
 }
 
 export interface catergoryProps {
-    text: string;
-    src: string | StaticImageData | any;
-    alt: string;
-    ref?: React.RefObject<HTMLSpanElement>;
-    scrollState?: boolean;
+  text: string;
+  src: string | StaticImageData | any;
+  alt: string;
+  ref?: React.RefObject<HTMLSpanElement>;
+  scrollState?: boolean;
 }
 
 export interface skillProps {
-    skill: string;
-    scrollState?: boolean;
-    ref?: React.RefObject<HTMLSpanElement>;
+  skill: string;
+  scrollState?: boolean;
+  ref?: React.RefObject<HTMLSpanElement>;
 }
 
 export interface AppLayoutProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export interface questionProps {
-    question?: string;
-    answer?: string;
+  question?: string;
+  answer?: string;
+}
+
+export interface feedProps {
+  title: string;
+  link: string;
+  date: string;
+  writer: string;
+}
+
+export interface buttonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  text: string;
+  state: boolean;
+}
+
+export interface inputProps {
+  placeholder: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  name: string;
 }

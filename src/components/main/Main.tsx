@@ -10,6 +10,7 @@ import {
   MainArticle,
   MainTitle,
 } from "./component/component";
+import backgroundImg2 from "../../../images/background_3.webp";
 import backgroundImg from "../../../images/background.png";
 import scroll from "../../../images/scroll.png";
 import { useSelector } from "react-redux";
@@ -28,7 +29,7 @@ export default function Main() {
         justify-content: center;
       `}
     >
-      <BackGroundImg src={backgroundImg} />
+      <BackGroundImg src={backgroundImg2} />
       <MainArticle />
       {/* <IconBox /> */}
       <Icon src={scroll} alt="스크롤" />
