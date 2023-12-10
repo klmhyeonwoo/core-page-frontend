@@ -11,7 +11,7 @@ import wrapper from "@/src/app/store";
 import "firebase/messaging";
 import ScrollToTop from "@/src/hook/ScrollToTop";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RecoilRoot } from "recoil";
 import "../utils/firebase-messaging-sw";
 import { requestToken } from "../utils/firebase-messaging-sw";
@@ -19,15 +19,11 @@ import ChannelService from "./api/ChannelService";
 
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      ChannelService.boot({
-        pluginKey: "4a95db46-8630-4d8d-a4ad-005f90e433e1", // fill your plugin key
-      });
-    }
-  }, []);
 
   if (typeof window !== "undefined") {
+    ChannelService.boot({
+      pluginKey: "4a95db46-8630-4d8d-a4ad-005f90e433e1", // fill your plugin key
+    });
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("/sw.js")
