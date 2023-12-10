@@ -80,6 +80,7 @@ class ChannelService {
 
   loadScript() {
     (function () {
+      if (typeof window === "undefined") return;
       var w = window;
       if (w.ChannelIO) {
         return w.console.error("ChannelIO script included twice.");

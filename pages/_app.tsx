@@ -20,9 +20,11 @@ import ChannelService from "./api/ChannelService";
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   useEffect(() => {
-    ChannelService.boot({
-      pluginKey: "4a95db46-8630-4d8d-a4ad-005f90e433e1", // fill your plugin key
-    });
+    if (typeof window !== "undefined") {
+      ChannelService.boot({
+        pluginKey: "4a95db46-8630-4d8d-a4ad-005f90e433e1", // fill your plugin key
+      });
+    }
   }, []);
 
   if (typeof window !== "undefined") {
