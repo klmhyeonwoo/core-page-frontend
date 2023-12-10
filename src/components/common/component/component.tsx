@@ -427,7 +427,7 @@ export const CategoryForMobile = () => {
           />
           조직 소개
         </Link>
-        <Link
+        {/* <Link
           href="/procedure"
           tabIndex={-1}
           onClick={() => {
@@ -470,7 +470,7 @@ export const CategoryForMobile = () => {
             `}
           />
           자주 묻는 질문
-        </Link>
+        </Link> */}
         <Link
           href="/feed"
           tabIndex={-1}
@@ -515,6 +515,29 @@ export const CategoryForMobile = () => {
           />
           모집 알림
         </Link>
+        <a
+          href="https://likelion.university/"
+          tabIndex={-1}
+          target="_blank"
+          onClick={() => {
+            dispatch(setOpenCategory({ openCategory: !openCategory }));
+          }}
+        >
+          <Image
+            src={"https://www.kakaocorp.com/page/ico_milestones.gif"}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
+            width={0}
+            height={0}
+            alt="자주 묻는 질문 아이콘"
+            css={css`
+              width: 3rem;
+              height: 3rem;
+            `}
+          />
+          멋대 알아보기
+        </a>
       </div>
     </section>
   );
@@ -1035,18 +1058,22 @@ export const Header = () => {
           <Link href="/" tabIndex={-1}>
             조직 소개
           </Link>
-          <Link href="/procedure" tabIndex={-1}>
+          {/* <Link href="/procedure" tabIndex={-1}>
             합류 여정
           </Link>
           <Link href="/faq" tabIndex={-1}>
             자주 묻는 질문
-          </Link>
+          </Link> */}
           <Link href="/feed" tabIndex={-1}>
             피드
           </Link>
           <Link href="/notice" tabIndex={-1}>
             모집 알림
           </Link>
+          <a href="https://likelion.university/" target="_blank">
+            멋대 알아보기
+          </a>
+
           <Hamburger
             className="menu"
             css={css`
@@ -1336,18 +1363,22 @@ export const SideHeader = () => {
           <Link href="/" tabIndex={-1}>
             조직 소개
           </Link>
-          <Link href="/procedure" tabIndex={-1}>
+          {/* <Link href="/procedure" tabIndex={-1}>
             합류 여정
           </Link>
           <Link href="/faq" tabIndex={-1}>
             자주 묻는 질문
-          </Link>
+          </Link> */}
+
           <Link href="/feed" tabIndex={-1}>
             피드
           </Link>
           <Link href="/notice" tabIndex={-1}>
             모집 알림
           </Link>
+          <a href="https://likelion.university/" target="_blank">
+            멋대 알아보기
+          </a>
           <Hamburger
             className="menu"
             css={css`

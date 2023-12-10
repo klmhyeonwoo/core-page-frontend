@@ -15,6 +15,7 @@
       {
         "marquee": "off"
       }
-    ]
+    ],
+    "disown-opener": "off"
   }
 }

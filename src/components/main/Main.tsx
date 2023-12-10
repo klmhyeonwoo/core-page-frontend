@@ -32,7 +32,7 @@ export default function Main() {
       <BackGroundImg src={backgroundImg2} />
       <MainArticle />
       {/* <IconBox /> */}
-      <Icon src={scroll} alt="스크롤" />
+      {/* <Icon src={scroll} alt="스크롤" /> */}
     </section>
   );
 }

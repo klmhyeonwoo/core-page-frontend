@@ -12,12 +12,12 @@ export default function Home() {
   return (
     <>
       <Main />
-      <Opening />
+      {/* <Opening /> */}
       <Introduce />
       <Branding />
       <Skill />
-      <Ideal />
-      <Ending />
+      {/* <Ideal /> */}
+      {/* <Ending /> */}
       <Footer />
     </>
   );
